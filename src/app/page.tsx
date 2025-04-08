@@ -1,103 +1,398 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import { FiExternalLink } from "react-icons/fi";
+import { motion } from "framer-motion";
+import {
+  websiteProjects,
+  frontendProjects,
+  appProjects,
+  threeDProjects,
+  publications,
+  skills,
+  certifications,
+} from "../lib/data";
+import { useLanguage } from "../contexts/language-context";
+
+// Animation variants
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.6 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      {/* Hero Section */}
+      <section className="py-20 md:py-28">
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Profile Photo */}
+            <motion.div 
+              className="relative w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-full border-4 border-primary/20 shadow-xl"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                src="/images/avatar.jpeg"
+                alt="Dustin Keßler"
+                width={256}
+                height={256}
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                  {t("hero.greeting")} <span className="text-primary">Dustin Keßler</span>
+                </h1>
+                <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                  {t("hero.specialization")}
+                </p>
+              </motion.div>
+              <motion.div 
+                className="flex flex-col gap-2 min-[400px]:flex-row"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <Link
+                  href="#projects"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                >
+                  {t("hero.viewWork")}
+                </Link>
+                <Link
+                  href="/resume"
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                >
+                  {t("hero.viewResume")}
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Publications Section */}
+      <motion.section 
+        id="publications" 
+        className="py-12 md:py-16 bg-muted/40"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-4 max-w-[800px] mx-auto mb-8"
+            variants={fadeIn}
+          >
+             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{t("section.publications")}</h2>
+             <p className="text-muted-foreground">
+               {t("publications.explore")}
+             </p>
+             <div className="flex flex-wrap justify-center gap-4">
+               <Link
+                 href="https://scholar.google.com/citations?user=A0OdhrIAAAAJ&hl=en"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+               >
+                 {t("publications.scholar")} <FiExternalLink className="h-4 w-4" />
+               </Link>
+               <Link
+                 href="/publications"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+               >
+                 {t("publications.all")}
+               </Link>
+             </div>
+          </motion.div>
+          <motion.div 
+            className="grid gap-6 md:grid-cols-1 lg:grid-cols-2"
+            variants={staggerContainer}
+          >
+            {publications.slice(0, 4).map((pub, index) => (
+              <motion.div key={index} variants={itemVariant}>
+                <PublicationCard publication={pub} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Certifications & Awards Section */}
+      <motion.section 
+        id="certifications" 
+        className="py-12 md:py-16 bg-gradient-to-br from-background to-muted/30"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-4 max-w-[800px] mx-auto mb-8"
+            variants={fadeIn}
+          >
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+              {t("section.certifications")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("certifications.description")}
+            </p>
+          </motion.div>
+          <motion.div 
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            variants={staggerContainer}
+          >
+            {certifications.map((cert, index) => (
+              <motion.div 
+                key={index} 
+                variants={itemVariant}
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+                }}
+              >
+                <CertificationCard certification={cert} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Projects Section */}
+      <motion.section 
+        id="projects" 
+        className="py-12 md:py-16 bg-muted/40"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-4 mb-8"
+            variants={fadeIn}
+          >
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{t("section.projects")}</h2>
+            <p className="text-muted-foreground max-w-[700px]">
+              {t("projects.description")}
+            </p>
+             <Link
+               href="/projects"
+               className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+             >
+               {t("projects.all")}
+             </Link>
+          </motion.div>
+
+          <motion.div 
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            variants={staggerContainer}
+          >
+            {websiteProjects.slice(0, 2).map((project) => (
+              <motion.div key={project.title} variants={itemVariant}>
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+            {threeDProjects.slice(0, 1).map((project) => (
+              <motion.div key={project.title} variants={itemVariant}>
+                <SimpleProjectCard project={project} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Skills Section */}
+      <motion.section 
+        id="skills" 
+        className="py-12 md:py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-4 max-w-[800px] mx-auto"
+            variants={fadeIn}
+          >
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{t("section.skills")}</h2>
+              <p className="text-muted-foreground">
+                {t("skills.description")}
+              </p>
+            </div>
+            <motion.div 
+              className="flex flex-wrap justify-center gap-2 md:gap-3 mt-6"
+              variants={staggerContainer}
+            >
+              {skills.slice(0, 12).map((skill) => (
+                <motion.span
+                  key={skill}
+                  className="inline-flex items-center rounded-md border border-input bg-background px-3 py-1 text-sm font-medium shadow-sm hover:bg-accent transition-colors duration-200"
+                  variants={itemVariant}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
+             <div className="mt-8">
+               <Link
+                 href="/skills"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+               >
+                 {t("skills.all")}
+               </Link>
+             </div>
+          </motion.div>
+        </div>
+      </motion.section>
+    </div>
+  );
+}
+
+import type { Publication, Project, ThreeDProject, Certification } from '../lib/data';
+
+function PublicationCard({ publication }: { publication: Publication }) {
+  return (
+    <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full">
+      <div className="flex-grow">
+        <h4 className="font-semibold text-lg mb-1 line-clamp-2">{publication.title}</h4>
+        <p className="text-sm text-muted-foreground mb-1 italic line-clamp-1">{publication.authors}</p>
+        {publication.source && <p className="text-sm text-muted-foreground mb-2 line-clamp-1">{publication.source}</p>}
+      </div>
+      <div className="flex justify-between items-end text-sm text-muted-foreground mt-2 pt-2 border-t">
+        <span>Year: {publication.year}</span>
+        {publication.citations !== undefined && publication.citations !== "n/a" && (
+          <span>Cited by: {publication.citations}</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full">
+      <div className="p-4 flex-grow">
+        <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+        {project.description && (
+          <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{project.description}</p>
+        )}
+        {project.tags && (
+           <div className="mt-auto pt-2 flex flex-wrap gap-1">
+             {project.tags.map((tag: string) => (
+               <span
+                 key={tag}
+                 className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+               >
+                 {tag}
+               </span>
+             ))}
+           </div>
+         )}
+      </div>
+       {project.link && (
+         <div className="p-4 pt-0 mt-auto">
+           <Link
+             href={project.link}
+             target="_blank"
+             rel="noopener noreferrer"
+             className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+           >
+             Visit Website <FiExternalLink className="h-3 w-3" />
+           </Link>
+         </div>
+       )}
+    </div>
+  );
+}
+
+function SimpleProjectCard({ project }: { project: Project | ThreeDProject }) {
+   return (
+     <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full">
+        <div className="flex-grow">
+          <h4 className="font-semibold text-lg mb-1">{project.title}</h4>
+          {project.description && <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{project.description}</p>}
+        </div>
+        {project.tags && (
+            <div className="mt-auto pt-2 flex flex-wrap gap-1">
+              {project.tags.map((tag: string) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+        )}
+     </div>
+   );
+ }
+
+function CertificationCard({ certification }: { certification: Certification }) {
+  return (
+    <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full hover:shadow-md transition-all">
+      <div className="flex-grow">
+        <h4 className="font-semibold text-lg mb-1">{certification.title}</h4>
+        <p className="text-sm text-muted-foreground mb-1">{certification.organization}</p>
+        <p className="text-sm text-muted-foreground mb-2">{certification.date}</p>
+        {certification.description && (
+          <p className="text-sm mt-2">{certification.description}</p>
+        )}
+      </div>
+      {certification.link && (
+        <div className="mt-2 pt-2 border-t">
+          <Link
+            href={certification.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+          >
+            View Certificate <FiExternalLink className="h-3 w-3" />
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
