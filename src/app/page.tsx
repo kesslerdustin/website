@@ -6,8 +6,6 @@ import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import {
   websiteProjects,
-  frontendProjects,
-  appProjects,
   threeDProjects,
   publications,
   skills,

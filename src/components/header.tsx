@@ -15,6 +15,7 @@ const navItems = [
   { name: "nav.certifications", href: "/#certifications" },
   { name: "nav.skills", href: "/skills" },
   { name: "nav.resume", href: "/resume" },
+  { name: "nav.contact", href: "/contact" },
 ];
 
 export function Header() {
