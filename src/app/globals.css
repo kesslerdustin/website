@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gradient Background Animation */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -37,6 +24,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+    
+    /* Gradient colors - light theme */
+    --gradient-1: rgba(99, 179, 237, 0.2); /* Light blue */
+    --gradient-2: rgba(104, 211, 145, 0.15); /* Light green */
+    --gradient-3: rgba(159, 122, 234, 0.2); /* Light purple */
+    
+    /* Scroll variables with default values */
+    --scroll-percent: 0%;
+    --scroll-factor: 0;
   }
 
   .dark {
@@ -59,57 +55,250 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
+    
+    /* Gradient colors - dark theme */
+    --gradient-1: rgba(56, 189, 248, 0.15); /* Dark blue */
+    --gradient-2: rgba(74, 222, 128, 0.1); /* Dark green */
+    --gradient-3: rgba(167, 139, 250, 0.15); /* Dark purple */
   }
 }
 
-/* Add gradient background to sections */
+/* Reset body to ensure no background separation */
 body {
   @apply bg-background text-foreground;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-body::before {
-  content: '';
+/* Background container for the whole site */
+#__next, 
+.animated-bg {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+/* Full-page background gradient */
+.animated-bg::after {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at top right, 
-               rgba(var(--primary), 0.05) 0%, 
-               transparent 50%),
-             radial-gradient(circle at bottom left, 
-               rgba(var(--ring), 0.05) 0%, 
-               transparent 50%);
-  animation: gradient-shift 15s ease infinite;
-  background-size: 200% 200%;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom, 
+    transparent,
+    rgba(var(--primary), calc(0.01 + (var(--scroll-factor) * 0.05)))
+  );
+  z-index: -15;
+  pointer-events: none;
+  opacity: var(--scroll-factor);
+  transition: opacity 0.4s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-section {
-  position: relative;
-  overflow: hidden;
-}
-
-section.bg-muted\/40::before {
-  content: '';
-  position: absolute;
+/* Orb container to handle all gradient orbs */
+.orb-container {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Update gradient orbs styling */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px); /* More blur for a more diffused effect */
+  opacity: 0.6;
+  transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.dark .gradient-orb {
+  mix-blend-mode: normal;
+  filter: blur(100px); /* Even more blur in dark mode */
+}
+
+.orb-1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle at center, 
+    var(--gradient-1),
+    transparent 80%
+  );
+  left: -20vw;
+  top: -20vh;
+}
+
+.orb-2 {
+  width: 75vw;
+  height: 75vw;
+  background: radial-gradient(
+    circle at center, 
+    var(--gradient-3), 
+    var(--gradient-2),
+    transparent 80%
+  );
+  right: -25vw;
+  bottom: -20vh;
+}
+
+/* Dynamic grid pattern based on scroll */
+.bg-grid-pattern {
+  position: relative;
+}
+
+.bg-grid-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(var(--border), calc(0.05 + (var(--scroll-factor) * 0.05))) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--border), calc(0.05 + (var(--scroll-factor) * 0.05))) 1px, transparent 1px);
+  background-size: calc(30px - (var(--scroll-factor) * 5px)) calc(30px - (var(--scroll-factor) * 5px));
+  mask-image: radial-gradient(circle at center, white, transparent calc(80% - (var(--scroll-factor) * 10%)));
   z-index: -1;
-  background: radial-gradient(circle at top left, 
-               rgba(var(--primary), 0.08) 0%, 
-               transparent 60%);
-  animation: gradient-shift 20s ease infinite;
-  background-size: 200% 200%;
+  opacity: calc(0.3 + (var(--scroll-factor) * 0.2));
+  transition: opacity 0.3s ease, background-size 0.3s ease;
+}
+
+/* Container and section styles to eliminate visual breaks */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Section transitions - remove all borders, backgrounds, and other separating elements */
+section {
+  position: relative;
+  overflow: visible; 
+  transition: transform 0.5s ease-out;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Specifically target any borders between sections */
+section + section {
+  border-top: none;
+}
+
+/* Remove section dividers completely */
+.section-divider, 
+.section-divider::after,
+.section::after,
+.section::before {
+  display: none !important;
+}
+
+/* Remove any horizontal rule elements that might exist */
+hr {
+  display: none;
+}
+
+/* Make sure active section highlight doesn't create borders */
+.section-active::before {
+  opacity: 0.4;
+  z-index: -1;
+  border: none;
+}
+
+/* Card hover animations */
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Content fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary), 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary), 0.5);
+}
+
+/* Decorative grid pattern for certain sections - this is the original pattern without scroll effects */
+.bg-grid-pattern-static {
+  position: relative;
+}
+
+.bg-grid-pattern-static::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(var(--border), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--border), 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(circle at center, white, transparent 80%);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Filter animation for project pages */
+.filter-item {
+  transition: all 0.3s ease;
+}
+
+.filter-item:hover, .filter-item.active {
+  background-color: rgba(var(--primary), 0.1);
+  transform: translateY(-2px);
 }
 
 @layer utilities {
   .section-divider {
-    position: relative;
-    height: 6rem;
-    overflow: hidden;
+    display: none;
   }
   
   .section-divider::after {
@@ -125,4 +314,30 @@ section.bg-muted\/40::before {
                 rgba(var(--border), 0.5) 50.5%, 
                 transparent 50.5%);
   }
+  
+  /* Utility classes for color overlays */
+  .overlay-primary {
+    position: relative;
+  }
+  
+  .overlay-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(var(--primary), 0.15), transparent 70%);
+    z-index: -1;
+  }
+
+  /* Utility for staggered animations */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .stagger-delay-1 { animation-delay: 0.1s; }
+  .stagger-delay-2 { animation-delay: 0.2s; }
+  .stagger-delay-3 { animation-delay: 0.3s; }
+  .stagger-delay-4 { animation-delay: 0.4s; }
+  .stagger-delay-5 { animation-delay: 0.5s; }
 }

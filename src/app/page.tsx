@@ -12,6 +12,7 @@ import {
   certifications,
 } from "../lib/data";
 import { useLanguage } from "../contexts/language-context";
+import { Reveal } from "@/components/ui/reveal";
 
 // Animation variants
 const fadeIn = {
@@ -43,7 +44,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-20 md:py-28">
+      <section className="pt-20 pb-6 md:pt-28 md:pb-8 overlay-primary">
         <div className="container px-4 md:px-6">
           <motion.div 
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
@@ -89,13 +90,13 @@ export default function Home() {
               >
                 <Link
                   href="#projects"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-200 hover:bg-primary/90 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   {t("hero.viewWork")}
                 </Link>
                 <Link
                   href="/resume"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-md hover:border-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   {t("hero.viewResume")}
                 </Link>
@@ -108,7 +109,7 @@ export default function Home() {
       {/* Publications Section */}
       <motion.section 
         id="publications" 
-        className="py-12 md:py-16 bg-muted/40"
+        className="py-8 md:py-12 bg-transparent"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -128,13 +129,13 @@ export default function Home() {
                  href="https://scholar.google.com/citations?user=A0OdhrIAAAAJ&hl=en"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
                >
                  {t("publications.scholar")} <FiExternalLink className="h-4 w-4" />
                </Link>
                <Link
                  href="/publications"
-                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
                >
                  {t("publications.all")}
                </Link>
@@ -156,12 +157,13 @@ export default function Home() {
       {/* Certifications & Awards Section */}
       <motion.section 
         id="certifications" 
-        className="py-12 md:py-16 bg-gradient-to-br from-background to-muted/30"
+        className="py-8 md:py-12 bg-transparent"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeIn}
       >
+        <div className="parallax-bg absolute inset-0 z-[-1]" />
         <div className="container px-4 md:px-6">
           <motion.div 
             className="flex flex-col items-center text-center space-y-4 max-w-[800px] mx-auto mb-8"
@@ -197,7 +199,7 @@ export default function Home() {
       {/* Projects Section */}
       <motion.section 
         id="projects" 
-        className="py-12 md:py-16 bg-muted/40"
+        className="py-8 md:py-12 bg-transparent"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -214,7 +216,7 @@ export default function Home() {
             </p>
              <Link
                href="/projects"
-               className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+               className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
              >
                {t("projects.all")}
              </Link>
@@ -241,7 +243,7 @@ export default function Home() {
       {/* Skills Section */}
       <motion.section 
         id="skills" 
-        className="py-12 md:py-16"
+        className="py-8 md:py-12 bg-transparent"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -265,7 +267,7 @@ export default function Home() {
               {skills.slice(0, 12).map((skill) => (
                 <motion.span
                   key={skill}
-                  className="inline-flex items-center rounded-md border border-input bg-background px-3 py-1 text-sm font-medium shadow-sm hover:bg-accent transition-colors duration-200"
+                  className="inline-flex items-center rounded-md border border-input bg-background px-3 py-1 text-sm font-medium shadow-sm hover:bg-accent hover:border-primary/40 hover:scale-105 transition-all duration-200"
                   variants={itemVariant}
                   whileHover={{ scale: 1.05 }}
                 >
@@ -276,9 +278,9 @@ export default function Home() {
              <div className="mt-8">
                <Link
                  href="/skills"
-                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                 className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
                >
-                 {t("skills.all")}
+                 {t("skills.viewAll")}
                </Link>
              </div>
           </motion.div>
@@ -292,7 +294,7 @@ import type { Publication, Project, ThreeDProject, Certification } from '../lib/
 
 function PublicationCard({ publication }: { publication: Publication }) {
   return (
-    <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full">
+    <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full card-hover-effect">
       <div className="flex-grow">
         <h4 className="font-semibold text-lg mb-1 line-clamp-2">{publication.title}</h4>
         <p className="text-sm text-muted-foreground mb-1 italic line-clamp-1">{publication.authors}</p>
@@ -310,7 +312,7 @@ function PublicationCard({ publication }: { publication: Publication }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full">
+    <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full card-hover-effect">
       <div className="p-4 flex-grow">
         <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
         {project.description && (
@@ -321,7 +323,7 @@ function ProjectCard({ project }: { project: Project }) {
              {project.tags.map((tag: string) => (
                <span
                  key={tag}
-                 className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+                 className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground hover:bg-primary/20 hover:text-primary-foreground hover:scale-105 transition-all duration-200"
                >
                  {tag}
                </span>
@@ -335,7 +337,7 @@ function ProjectCard({ project }: { project: Project }) {
              href={project.link}
              target="_blank"
              rel="noopener noreferrer"
-             className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+             className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
            >
              Visit Website <FiExternalLink className="h-3 w-3" />
            </Link>
@@ -347,7 +349,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 function SimpleProjectCard({ project }: { project: Project | ThreeDProject }) {
    return (
-     <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full">
+     <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full card-hover-effect">
         <div className="flex-grow">
           <h4 className="font-semibold text-lg mb-1">{project.title}</h4>
           {project.description && <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{project.description}</p>}
@@ -357,7 +359,7 @@ function SimpleProjectCard({ project }: { project: Project | ThreeDProject }) {
               {project.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+                  className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground hover:bg-primary/20 hover:text-primary-foreground hover:scale-105 transition-all duration-200"
                 >
                   {tag}
                 </span>
@@ -369,6 +371,7 @@ function SimpleProjectCard({ project }: { project: Project | ThreeDProject }) {
  }
 
 function CertificationCard({ certification }: { certification: Certification }) {
+  const { t } = useLanguage();
   return (
     <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full hover:shadow-md transition-all">
       <div className="flex-grow">
@@ -385,9 +388,9 @@ function CertificationCard({ certification }: { certification: Certification }) 
             href={certification.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
           >
-            View Certificate <FiExternalLink className="h-3 w-3" />
+            {t("certifications.viewCertificate")} <FiExternalLink className="h-3 w-3" />
           </Link>
         </div>
       )}

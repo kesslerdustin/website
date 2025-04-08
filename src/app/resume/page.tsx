@@ -2,23 +2,28 @@
 
 import { FiDownload, FiCalendar, FiMapPin, FiUsers, FiBook, FiAward } from "react-icons/fi";
 import Link from "next/link";
+import { useLanguage } from "../../contexts/language-context";
 // Import data from the central store
 import {
   skills,
   experience,
   education,
   publications,
+  certifications,
   Experience, // Import interfaces if needed for typing
   Education,
-  Publication
+  Publication,
+  Certification
 } from "../../lib/data";
 
 export default function ResumePage() {
+  const { t } = useLanguage();
+  
   return (
     <div className="container py-12 px-4 md:px-6 md:py-16">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Resume</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("nav.resume")}</h1>
           <p className="text-muted-foreground md:text-lg">
             Dustin Keßler - Professional Experience & Qualifications
           </p>
@@ -47,12 +52,12 @@ export default function ResumePage() {
 
           {/* Skills */}
           <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
-            <h2 className="text-xl font-bold mb-3">Key Skills</h2>
+            <h2 className="text-xl font-bold mb-3">{t("section.skills")}</h2>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="inline-flex items-center rounded-md border bg-background px-2.5 py-0.5 text-sm font-medium shadow-sm"
+                  className="inline-flex items-center rounded-md border bg-background px-2.5 py-0.5 text-sm font-medium shadow-sm hover:bg-accent hover:scale-105 hover:border-primary/40 transition-all duration-200"
                 >
                   {skill}
                 </span>
@@ -73,6 +78,33 @@ export default function ResumePage() {
                     <FiCalendar className="h-3 w-3" />
                     {edu.period}
                   </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Certifications */}
+          <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
+            <h2 className="text-xl font-bold mb-3">{t("section.certifications")}</h2>
+            <div className="space-y-4">
+              {certifications.map((cert, index) => (
+                <div key={index} className="space-y-1">
+                  <h3 className="font-semibold">{cert.title}</h3>
+                  <p className="text-sm text-muted-foreground">{cert.organization}</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1">
+                    <FiCalendar className="h-3 w-3" />
+                    {cert.date}
+                  </p>
+                  {cert.link && (
+                    <Link
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
+                    >
+                      {t("certifications.viewCertificate")}
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>
@@ -102,7 +134,7 @@ export default function ResumePage() {
                       {job.skills.map((skill) => (
                          <span
                            key={skill}
-                           className="inline-flex items-center rounded bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+                           className="inline-flex items-center rounded bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground hover:bg-primary/20 hover:text-primary-foreground hover:scale-105 transition-all duration-200"
                          >
                            {skill}
                          </span>
@@ -116,7 +148,7 @@ export default function ResumePage() {
 
           {/* Publications */}
           <section className="bg-card rounded-lg border p-6 space-y-6 shadow-sm">
-            <h2 className="text-xl font-bold mb-4">Selected Publications</h2>
+            <h2 className="text-xl font-bold mb-4">{t("section.publications")}</h2>
             <div className="space-y-5">
               {publications.slice(0, 5).map((pub, index) => ( // Show first 5 publications
                 <div key={index} className="space-y-1 border-b border-border pb-4 last:border-b-0 last:pb-0">
@@ -150,9 +182,9 @@ export default function ResumePage() {
                <div className="pt-2">
                   <Link
                     href="/publications"
-                    className="text-sm font-medium text-primary hover:underline"
+                    className="text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200"
                   >
-                    View all publications...
+                    {t("publications.all")}
                   </Link>
                </div>
             </div>

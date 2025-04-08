@@ -72,7 +72,7 @@ export default function SkillsPage() {
         </div>
         
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 scroll-animated from-bottom">
           <StatisticsCard
             title={t("skills.stats.years") || "Years Experience"}
             value={7}
@@ -98,7 +98,7 @@ export default function SkillsPage() {
         </div>
         
         {/* Charts Section */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-12 bg-grid-pattern rounded-xl p-6 scroll-animated from-left">
           <BarChart
             title={t("skills.charts.experience") || "Years of Experience by Domain"}
             data={experienceData}
@@ -112,7 +112,7 @@ export default function SkillsPage() {
         </div>
         
         {/* Skills Categories */}
-        <div className="mb-8">
+        <div className="mb-8 overlay-primary p-6 rounded-xl scroll-animated from-right">
           <h2 className="text-2xl font-bold mb-6">
             {t("skills.categories.title") || "Skill Categories"}
           </h2>
@@ -148,7 +148,7 @@ export default function SkillsPage() {
         </div>
         
         {/* All Skills */}
-        <div>
+        <div className="bg-muted/30 p-6 rounded-xl scroll-animated from-bottom">
           <h2 className="text-2xl font-bold mb-6">
             {t("skills.all.title") || "All Skills"}
           </h2>

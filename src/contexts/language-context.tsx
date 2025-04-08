@@ -42,6 +42,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Projects
     "projects.description": "A selection of my work across different domains.",
     "projects.all": "View All Projects",
+    "projects.category.all": "All",
+    "projects.category.website": "Websites",
+    "projects.category.frontend": "Frontend",
+    "projects.category.app": "App Development",
+    "projects.category.3d": "3D / AR / VR",
+    "projects.visitWebsite": "Visit Website",
 
     // Skills
     "skills.title": "Technical Skills",
@@ -54,9 +60,11 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.charts.projects": "Projects by Type",
     "skills.categories.title": "Skill Categories",
     "skills.all.title": "All Skills",
+    "skills.viewAll": "View All Skills",
     
     // Certifications
     "certifications.description": "Professional achievements and recognitions in the field.",
+    "certifications.viewCertificate": "View Certificate",
 
     // Contact
     "contact.title": "Get in Touch",
@@ -109,6 +117,12 @@ const translations: Record<Language, Record<string, string>> = {
     // Projects
     "projects.description": "Eine Auswahl meiner Arbeiten in verschiedenen Bereichen.",
     "projects.all": "Alle Projekte ansehen",
+    "projects.category.all": "Alle",
+    "projects.category.website": "Webseiten",
+    "projects.category.frontend": "Frontend",
+    "projects.category.app": "App-Entwicklung",
+    "projects.category.3d": "3D / AR / VR",
+    "projects.visitWebsite": "Webseite besuchen",
 
     // Skills
     "skills.title": "Technische Fähigkeiten",
@@ -121,9 +135,11 @@ const translations: Record<Language, Record<string, string>> = {
     "skills.charts.projects": "Projekte nach Typ",
     "skills.categories.title": "Fähigkeitskategorien",
     "skills.all.title": "Alle Fähigkeiten",
+    "skills.viewAll": "Alle Fähigkeiten anzeigen",
     
     // Certifications
     "certifications.description": "Berufliche Erfolge und Anerkennungen im Fachbereich.",
+    "certifications.viewCertificate": "Zertifikat anzeigen",
 
     // Contact
     "contact.title": "Kontakt",

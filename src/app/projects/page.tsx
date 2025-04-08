@@ -10,6 +10,7 @@ import {
   threeDProjects,
   Project,
 } from "../../lib/data";
+import { useLanguage } from "../../contexts/language-context";
 
 // Combine all projects and add category
 const allProjects: (Project & { category: string })[] = [
@@ -19,16 +20,17 @@ const allProjects: (Project & { category: string })[] = [
   ...threeDProjects.map(p => ({ ...p, category: '3d' })),
 ];
 
-const categories = [
-  { id: 'all', label: 'All' },
-  { id: 'website', label: 'Websites' },
-  { id: 'frontend', label: 'Frontend' },
-  { id: 'app', label: 'App Development' },
-  { id: '3d', label: '3D / AR / VR' },
-];
-
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<string>("all");
+  const { t } = useLanguage();
+  
+  const categories = [
+    { id: 'all', label: t("projects.category.all") },
+    { id: 'website', label: t("projects.category.website") },
+    { id: 'frontend', label: t("projects.category.frontend") },
+    { id: 'app', label: t("projects.category.app") },
+    { id: '3d', label: t("projects.category.3d") },
+  ];
 
   const filteredProjects =
     filter === "all"
@@ -38,9 +40,9 @@ export default function ProjectsPage() {
   return (
     <div className="container py-12 px-4 md:px-6 md:py-16">
       <div className="mb-8 space-y-2 text-center">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Projects</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("section.projects")}</h1>
         <p className="text-muted-foreground md:text-lg">
-          Explore a collection of my work across various domains.
+          {t("projects.description")}
         </p>
       </div>
 
@@ -80,8 +82,10 @@ export default function ProjectsPage() {
 // ProjectCard component adapted for this page
 // Uses the imported Project interface
 function ProjectCard({ project }: { project: Project & { category: string } }) {
+  const { t } = useLanguage();
+  
   return (
-    <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full">
+    <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full hover:scale-[1.03] hover:border-primary/20 transition-all duration-300">
       <div className="p-4 flex-grow">
         <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
         {project.description && (
@@ -93,7 +97,7 @@ function ProjectCard({ project }: { project: Project & { category: string } }) {
           {project.tags.map((tag: string) => (
             <span
               key={tag}
-              className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+              className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground hover:bg-primary/20 hover:text-primary-foreground hover:scale-105 transition-all duration-200"
             >
               {tag}
             </span>
@@ -106,9 +110,9 @@ function ProjectCard({ project }: { project: Project & { category: string } }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline hover:text-primary/80 transition-all duration-200 hover:translate-x-0.5"
           >
-            Visit Website <FiExternalLink className="h-3 w-3" />
+            {t("projects.visitWebsite")} <FiExternalLink className="h-3 w-3" />
           </Link>
         </div>
       )}

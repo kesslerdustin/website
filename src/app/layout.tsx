@@ -4,6 +4,10 @@ import { ThemeProvider } from "../components/theme-provider";
 import { LanguageProvider } from "../contexts/language-context";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { ScrollEffects } from "../components/scroll-effects";
+import { ScrollProgress } from "../components/scroll-progress";
+import { ScrollToTop } from "../components/scroll-to-top";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -93,9 +97,13 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
+            <ScrollProgress />
+            <ScrollEffects />
+            <ScrollToTop />
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Analytics />
           </LanguageProvider>
         </ThemeProvider>
       </body>

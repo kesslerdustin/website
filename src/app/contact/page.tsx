@@ -16,7 +16,7 @@ export default function ContactPage() {
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto"
       >
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-animated from-bottom">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {t("contact.title") || "Get in Touch"}
           </h1>
@@ -25,7 +25,7 @@ export default function ContactPage() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-16 scroll-animated from-left">
           <ContactInfoCard 
             icon={<FiMail className="text-xl" />}
             title={t("contact.email") || "Email"}
@@ -45,7 +45,7 @@ export default function ContactPage() {
           />
         </div>
         
-        <div className="bg-card border shadow-sm rounded-xl p-6 md:p-8">
+        <div className="bg-card border shadow-sm rounded-xl p-6 md:p-8 bg-grid-pattern overlay-primary scroll-animated from-bottom">
           <h2 className="text-2xl font-semibold mb-6 text-center">
             {t("contact.sendMessage") || "Send a Message"}
           </h2>
