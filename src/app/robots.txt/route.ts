@@ -3,8 +3,15 @@ export function GET(): Response {
 User-agent: *
 Allow: /
 
+# Disallow crawling of administrative or internal pages if needed
+# Disallow: /admin/
+# Disallow: /internal/
+
 # Sitemaps
 Sitemap: https://dustinkessler.com/sitemap.xml
+
+# Specify crawl delay to avoid server overload (optional)
+# Crawl-delay: 10
 `;
 
   return new Response(robotsTxt, {

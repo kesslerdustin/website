@@ -7,14 +7,15 @@ export function GET(): Response {
   // Current date for the lastModified field
   const date = new Date().toISOString();
 
-  // List of all routes
+  // List of all routes with priorities and update frequencies
   const routes = [
-    '',
-    '/contact',
-    '/publications',
-    '/resume',
-    '/skills',
-    '/projects',
+    { path: '', priority: '1.0', changefreq: 'weekly' },
+    { path: '/contact', priority: '0.8', changefreq: 'monthly' },
+    { path: '/publications', priority: '0.9', changefreq: 'monthly' },
+    { path: '/resume', priority: '0.9', changefreq: 'monthly' },
+    { path: '/skills', priority: '0.8', changefreq: 'monthly' },
+    { path: '/projects', priority: '0.9', changefreq: 'weekly' },
+    { path: '/local-services', priority: '0.9', changefreq: 'monthly' },
   ];
 
   // Generate the sitemap XML
@@ -22,12 +23,13 @@ export function GET(): Response {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   ${routes.map(route => `
   <url>
-    <loc>${baseUrl}${route}</loc>
+    <loc>${baseUrl}${route.path}</loc>
     <lastmod>${date}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${route === '' ? '1.0' : '0.8'}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route}" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de${route}" />
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route.path}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de${route.path}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
   </url>
   `).join('')}
 </urlset>`;

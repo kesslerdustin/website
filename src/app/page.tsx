@@ -77,6 +77,7 @@ export default function Home() {
               >
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                   {t("hero.greeting")} <span className="text-primary">Dustin Keßler</span>
+                  <span className="sr-only">Also known as Dustin Kessler</span>
                 </h1>
                 <p className="max-w-[700px] text-muted-foreground text-sm sm:text-base md:text-xl">
                   {t("hero.specialization")}
