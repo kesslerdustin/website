@@ -134,7 +134,7 @@ function MobileNav() {
             onClick={() => setOpen(false)}
           />
           <motion.div
-            className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
+            className="absolute top-16 left-1/2 transform -translate-x-1/2 dark:bg-black bg-white border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -144,11 +144,12 @@ function MobileNav() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block w-full py-2 px-2 text-base font-medium ${
+                  className={`block w-full py-2 px-2 text-base font-medium transition-colors ${
                     pathname === item.href
                       ? "text-primary"
                       : "text-muted-foreground hover:text-primary"
                   }`}
+                  style={{ textShadow: 'none', filter: 'none' }}
                   onClick={() => setOpen(false)}
                 >
                   {t(item.name)}
