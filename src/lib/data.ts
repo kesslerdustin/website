@@ -7,10 +7,13 @@ export interface NavLink {
   icon?: React.ElementType;
 }
 
+// Define possible domain values
+export type ProjectDomain = 'website' | 'frontend' | 'app' | '3d' | 'backend';
+
 export interface Project {
   title: string;
-  shortDescription?: string;
-  longDescription?: string;
+  shortDescription: string; // Now a translation key
+  longDescription: string;  // Now a translation key
   tags?: string[];
   link?: string;
   thumbnailImage?: string;
@@ -18,6 +21,7 @@ export interface Project {
   year: number;
   category: 'hobby' | 'professional' | 'research';
   status: 'completed' | 'work in progress' | 'TBD';
+  domains: ProjectDomain[]; // Changed to array for multiple domains
 }
 
 // Specific project types might extend Project if needed, but a single interface is often sufficient
@@ -72,209 +76,241 @@ export const navLinks: NavLink[] = [
 export const websiteProjects: Project[] = [
   {
     title: "Jinrui No Heart",
-    shortDescription: "Website project.",
-    longDescription: "Detailed description for Jinrui No Heart...",
+    shortDescription: "projects.jinrui.shortDesc", // Key
+    longDescription: "projects.jinrui.longDesc", // Key
     link: "https://www.jinruinoheart.com",
-    tags: ["Web Development"],
+    tags: ["Web Development", "Tailwind", "React", "Firestore", "Analytics", "Payment Integration"],
     year: 2025,
     category: 'hobby',
     status: 'completed',
     thumbnailImage: "/images/jinrui.jpg",
     images: ["/images/jinrui.jpg"],
+    domains: ['website'], // Domain added
   },
   {
     title: "Töller & Steprath",
-    shortDescription: "Website for an electrical engineering company.",
-    longDescription: "Detailed description for Töller & Steprath...",
+    shortDescription: "projects.toeller.shortDesc", // Key
+    longDescription: "projects.toeller.longDesc", // Key
     link: "https://toeller-steprath.de/",
-    tags: ["Web Development", "WordPress"],
+    tags: ["Web Development", "WordPress", "Responsive Design", "Contact Forms", "Service Pages"],
     year: 2022,
     category: 'professional',
     status: 'completed',
     thumbnailImage: "/images/toeller.jpg",
     images: ["/images/toeller.jpg"],
+    domains: ['website'], // Domain added
   },
    {
     title: "Steinhauer Engineering",
-    shortDescription: "Website for an engineering services company.",
-    longDescription: "Detailed description for Steinhauer Engineering...",
+    shortDescription: "projects.steinhauer.shortDesc", // Key
+    longDescription: "projects.steinhauer.longDesc", // Key
     link: "https://www.steinhauer-engineering.de/",
-    tags: ["Web Development", "WordPress"],
+    tags: ["Web Development", "WordPress", "Project Management", "Engineering Services", "Client Portal"],
     year: 2024,
     category: 'professional',
     status: 'completed',
     thumbnailImage: "/images/steinhauer.jpg",
     images: ["/images/steinhauer.jpg"],
+    domains: ['website'], // Domain added
   },
 ];
 
 export const frontendProjects: Project[] = [
  {
     title: "Omnystate Platform",
-    shortDescription: "Frontend development project.",
-    longDescription: "Detailed description for Omnystate Platform...",
+    shortDescription: "projects.omnystatePlatform.shortDesc", // Key
+    longDescription: "projects.omnystatePlatform.longDesc", // Key
     year: 2024,
     category: 'professional',
     status: 'work in progress',
     thumbnailImage: "/images/omnystate.jpg",
     images: ["/images/omnystate.jpg"],
+    tags: ["React", "Front-end", "Back-end Integration", "User Management"],
+    domains: ['frontend', 'backend'], // Domains added (backend requested)
+    link: "https://www.omnystate.de/",
   },
 ];
 
 export const appProjects: Project[] = [
   {
     title: "Omnystate App",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for Omnystate App...",
+    shortDescription: "projects.omnystateApp.shortDesc", // Key
+    longDescription: "projects.omnystateApp.longDesc", // Key
     year: 2023,
     category: 'professional',
     status: 'work in progress',
     thumbnailImage: "/images/omnyapp.jpg",
     images: ["/images/omnyapp.jpg"],
+    tags: ["React", "iOS", "Android", "Mobile Development", "Cross-Platform"],
+    domains: ['app'], // Domain added
+    link: "https://www.omnystate.de/",
   },
   {
     title: "Omnystate Collect",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for Omnystate Collect...",
+    shortDescription: "projects.omnystateCollect.shortDesc", // Key
+    longDescription: "projects.omnystateCollect.longDesc", // Key
     year: 2025,
     category: 'professional',
     status: 'work in progress',
     thumbnailImage: "/images/omnycollect.jpg",
     images: ["/images/omnycollect.jpg"],
+    tags: ["Mobile Development", "Data Collection", "Building Documentation", "Technical Systems", "Internal Tools"],
+    domains: ['app'], // Domain added
+    link: "https://www.omnystate.de/",
   },
   {
     title: "ProtocolIT",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for ProtocolIT...",
+    shortDescription: "projects.protocolit.shortDesc", // Key
+    longDescription: "projects.protocolit.longDesc", // Key
     year: 2024,
     category: 'hobby',
     status: 'completed',
-    thumbnailImage: "/images/projects/protocolit_thumb.jpg",
-    images: ["/images/projects/protocolit_1.jpg"],
+    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+    images: ["/images/placeholder.jpg"], // Placeholder image
+    tags: ["Mobile Development", "AI Integration", "Protocol Generation", "JSON Export", "Data Management"],
+    domains: ['app'], // Domain added
   },
   {
     title: "The QUIZ",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for The QUIZ...",
+    shortDescription: "projects.quiz.shortDesc", // Key
+    longDescription: "projects.quiz.longDesc", // Key
     year: 2017,
     category: 'hobby',
     status: 'completed',
     thumbnailImage: "/images/quiz.jpg",
     images: ["/images/quiz.jpg"],
+    tags: ["Android", "Mobile Development", "Game Development", "In-App Purchases", "Leaderboards", "Cooperative Play"],
+    domains: ['app'], // Domain added
   },
   {
     title: "Outdoorbible",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for Outdoorbible...",
+    shortDescription: "projects.outdoorbible.shortDesc", // Key
+    longDescription: "projects.outdoorbible.longDesc", // Key
     year: 2025,
     category: 'hobby',
     status: 'work in progress',
-    thumbnailImage: "/images/projects/outdoorbible_thumb.jpg",
-    images: ["/images/projects/outdoorbible_1.jpg"],
+    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+    images: ["/images/placeholder.jpg"], // Placeholder image
+    tags: ["Mobile Development", "AI Integration", "Species Identification", "Survival Guide", "Community Features", "Interactive Learning", "Environmental Education"],
+    domains: ['app', 'backend'], // Domains added (backend requested)
   },
   {
     title: "Memoria",
-    shortDescription: "Mobile application development.",
-    longDescription: "Detailed description for Memoria...",
+    shortDescription: "projects.memoria.shortDesc", // Key
+    longDescription: "projects.memoria.longDesc", // Key
     year: 2025,
     category: 'hobby',
     status: 'work in progress',
-    thumbnailImage: "/images/projects/memoria_thumb.jpg",
-    images: ["/images/projects/memoria_1.jpg"],
+    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+    images: ["/images/placeholder.jpg"], // Placeholder image
+    tags: ["Mobile Development", "AI Integration", "Journaling", "Life Tracking", "Digital Biography", "Memory Preservation", "Social Features"],
+    domains: ['app', 'backend'], // Domains added (backend requested)
   },
 ];
 
 export const threeDProjects: Project[] = [
   {
     title: "FPVR VR Drone Racing",
-    shortDescription: "Experimental VR drone racing game.",
-    longDescription: "Detailed description for FPVR VR Drone Racing...",
-    tags: ["Unity", "VR"],
+    shortDescription: "projects.fpvr.shortDesc", // Key
+    longDescription: "projects.fpvr.longDesc", // Key
+    tags: ["Unity", "VR", "C#", "Multiplayer", "Game Development", "Meta Quest"],
     year: 2021,
     category: 'hobby',
     status: 'completed',
     link: "https://duselkay.itch.io/fpvr-drone-flying-experimental",
     thumbnailImage: "/images/fpvr.jpg",
     images: ["/images/fpvr.jpg"],
+    domains: ['3d'], // Domain added
   },
   {
     title: "Noname Island 1 - Crysis Mod (2008)",
-    shortDescription: "Singleplayer modification for Crysis.",
-    longDescription: "Detailed description for Noname Island 1...",
-    tags: ["Modding", "Game Development", "CryEngine"],
+    shortDescription: "projects.nni1.shortDesc", // Key
+    longDescription: "projects.nni1.longDesc", // Key
+    tags: ["Modding", "Game Development", "CryEngine", "Level Design"],
     year: 2008,
     category: 'hobby',
     status: 'completed',
     link: "https://www.pcgames.de/Mods-und-Maps-Thema-206108/Downloads/Mod-des-Tages-Crysis-Abenteuer-Noname-Island-in-neuer-Version-647288/",
     thumbnailImage: "/images/noname.jpg",
     images: ["/images/noname.jpg"],
-  },
+    domains: ['3d'], // Domain added
+    },
+    {
+      title: "Noname Island 2 - Crysis Mod (2008)",
+      shortDescription: "projects.nni2.shortDesc", // Key
+      longDescription: "projects.nni2.longDesc", // Key
+      tags: ["Modding", "Game Development", "CryEngine", "Level Design"],
+      year: 2010,
+      category: 'hobby',
+      status: 'completed',
+      link: "https://www.moddb.com/mods/living-hell-noname-island-21",
+      thumbnailImage: "/images/noname2.jpg",
+      images: ["/images/noname2.jpg"],
+      domains: ['3d'], // Domain added
+    },
   {
-    title: "Noname Island 2 - Crysis Mod (2008)",
-    shortDescription: "Sequel singleplayer modification for Crysis.",
-    longDescription: "Detailed description for Noname Island 2...",
-    tags: ["Modding", "Game Development", "CryEngine"],
-    year: 2010,
-    category: 'hobby',
-    status: 'completed',
-    link: "https://www.moddb.com/mods/living-hell-noname-island-21",
-    thumbnailImage: "/images/noname2.jpg",
-    images: ["/images/noname2.jpg"],
-  },
-  {
-    title: "Hololens AR Navigation",
-    shortDescription: "AR navigation research project for Hololens.",
-    longDescription: "Detailed description for Hololens AR Navigation...",
-    tags: ["Hololens", "AR", "Unity"],
+    title: "Industrial AR Navigation with HoloLens",
+    shortDescription: "projects.hololensNav.shortDesc", // Key
+    longDescription: "projects.hololensNav.longDesc", // Key
+    tags: ["HoloLens", "AR", "Unity", "Industrial", "Safety", "Navigation", "UX Design", "Spatial Computing"],
     year: 2020,
     category: 'research',
     status: 'completed',
     thumbnailImage: "/images/hololens.jpg",
     images: ["/images/hololens.jpg"],
+    domains: ['3d'],
+    link: "https://link.springer.com/chapter/10.1007/978-3-030-49698-2_1", // Domain added (AR/VR fits under 3d)
   },
+    {
+      title: "VR School",
+      shortDescription: "projects.vrSchool.shortDesc", // Key
+      longDescription: "projects.vrSchool.longDesc", // Key
+      tags: ["VR", "Unity", "Education", "Medical Training", "3D Visualization", "Spatial Learning"],
+      year: 2019,
+      category: 'research',
+      status: 'completed',
+      thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+      images: ["/images/placeholder.jpg"], // Placeholder image
+      domains: ['3d'], // Domain added (AR/VR fits under 3d)
+    },
+    {
+      title: "VR Solar",
+      shortDescription: "projects.vrSolar.shortDesc", // Key
+      longDescription: "projects.vrSolar.longDesc", // Key
+      tags: ["VR", "Unity", "Education", "Renewable Energy", "Data Visualization", "3D Modeling", "Real-time Simulation"],
+      year: 2021,
+      category: 'research',
+      status: 'completed',
+      thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+      images: ["/images/placeholder.jpg"], // Placeholder image
+      domains: ['3d'],
+      link: "https://ieeexplore.ieee.org/abstract/document/9499737", // Domain added (AR/VR fits under 3d)
+    },
   {
-    title: "VR School",
-    shortDescription: "Educational VR application research.",
-    longDescription: "Detailed description for VR School...",
-    tags: ["VR", "Unity", "Education"],
-    year: 2019,
-    category: 'research',
-    status: 'completed',
-    thumbnailImage: "/images/projects/vrschool_thumb.jpg",
-    images: ["/images/projects/vrschool_1.jpg"],
-  },
-  {
-    title: "VR Solar",
-    shortDescription: "VR application for learning about photovoltaics.",
-    longDescription: "Detailed description for VR Solar...",
-    tags: ["VR", "Unity", "Education"],
-    year: 2021,
-    category: 'research',
-    status: 'completed',
-    thumbnailImage: "/images/projects/vrsolar_thumb.jpg",
-    images: ["/images/projects/vrsolar_1.jpg"],
-  },
-  {
-    title: "AR Machines",
-    shortDescription: "AR research project related to machinery.",
-    longDescription: "Detailed description for AR Machines...",
-    tags: ["AR", "Unity"],
+    title: "Haptische Aufgaben in AR - Masterarbeit",
+    shortDescription: "projects.masterThesisAR.shortDesc", // Key
+    longDescription: "projects.masterThesisAR.longDesc", // Key
+    tags: ["AR", "HoloLens", "Education", "Research", "Human-Computer Interaction", "Learning", "Master Thesis"],
     year: 2020,
     category: 'research',
     status: 'completed',
-    thumbnailImage: "/images/projects/armachines_thumb.jpg",
-    images: ["/images/projects/armachines_1.jpg"],
+    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+    images: ["/images/placeholder.jpg"], // Placeholder image
+    domains: ['3d'],
+    link: "https://repositorium.hs-ruhrwest.de/frontdoor/index/index/docId/445", // Domain added (AR/VR fits under 3d)
   },
   {
     title: "VR Fräse",
-    shortDescription: "VR simulation for CNC milling.",
-    longDescription: "Detailed description for VR Fräse...",
-    tags: ["VR", "Unity", "Simulation"],
+    shortDescription: "projects.vrFraese.shortDesc", // Key
+    longDescription: "projects.vrFraese.longDesc", // Key
+    tags: ["VR", "Unity", "Simulation", "CNC", "Manufacturing", "Education", "Industrial Training"],
     year: 2021,
     category: 'research',
     status: 'completed',
-    thumbnailImage: "/images/projects/vrfraese_thumb.jpg",
-    images: ["/images/projects/vrfraese_1.jpg"],
+    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
+    images: ["/images/placeholder.jpg"], // Placeholder image
+    domains: ['3d'], 
+    link: "https://ieeexplore.ieee.org/abstract/document/9319083", // Domain added (AR/VR fits under 3d)
   },
 ];
 

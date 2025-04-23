@@ -125,7 +125,7 @@ function MobileNav() {
             onClick={() => setOpen(false)}
           />
           <motion.div
-            className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white dark:bg-black border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
+            className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
