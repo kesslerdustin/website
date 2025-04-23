@@ -43,15 +43,8 @@ export default function ResumePage() {
       <div className="grid gap-10 md:grid-cols-3">
         {/* Left Column - Skills, Education */}
         <div className="space-y-8">
-          {/* Contact Information (Placeholder) 
-          <section className="bg-card rounded-lg border p-6 space-y-4">
-            <h2 className="text-xl font-bold">Contact Information</h2>
-             Add your contact details here 
-          </section> 
-          */}
-
           {/* Skills */}
-          <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
+          <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-4 shadow-sm">
             <h2 className="text-xl font-bold mb-3">{t("section.skills")}</h2>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
@@ -66,7 +59,7 @@ export default function ResumePage() {
           </section>
 
           {/* Education */}
-          <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
+          <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-4 shadow-sm">
             <h2 className="text-xl font-bold mb-3">{t("section.education")}</h2>
             <div className="space-y-5">
               {education.map((edu, index) => (
@@ -84,7 +77,7 @@ export default function ResumePage() {
           </section>
 
           {/* Certifications */}
-          <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
+          <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-4 shadow-sm">
             <h2 className="text-xl font-bold mb-3">{t("section.certifications")}</h2>
             <div className="space-y-4">
               {certifications.map((cert, index) => (
@@ -114,7 +107,7 @@ export default function ResumePage() {
         {/* Right Column - Experience, Publications */}
         <div className="md:col-span-2 space-y-8">
           {/* Professional Experience */}
-          <section className="bg-card rounded-lg border p-6 space-y-6 shadow-sm">
+          <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-6 shadow-sm">
             <h2 className="text-xl font-bold mb-4">{t("section.experience")}</h2>
             <div className="space-y-8">
               {experience.map((job, index) => (
@@ -147,23 +140,23 @@ export default function ResumePage() {
           </section>
 
           {/* Publications */}
-          <section className="bg-card rounded-lg border p-6 space-y-6 shadow-sm">
+          <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-6 shadow-sm">
             <h2 className="text-xl font-bold mb-4">{t("section.publications")}</h2>
             <div className="space-y-5">
               {publications.slice(0, 5).map((pub, index) => ( // Show first 5 publications
                 <div key={index} className="space-y-1 border-b border-border pb-4 last:border-b-0 last:pb-0">
-                  <h3 className="font-semibold text-base">{pub.title}</h3>
+                  <h3 className="font-semibold text-base break-words">{pub.title}</h3>
                   <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
                       {pub.authors && (
-                        <div className="flex items-center gap-1" title={pub.authors}>
+                        <div className="flex items-center gap-1 max-w-full" title={pub.authors}>
                            <FiUsers className="h-3 w-3 flex-shrink-0" />
-                           <span className="truncate">{pub.authors}</span>
+                           <span className="truncate max-w-[200px] sm:max-w-[300px]">{pub.authors}</span>
                         </div>
                        )}
                        {pub.source && (
-                        <div className="flex items-center gap-1" title={pub.source}>
+                        <div className="flex items-center gap-1 max-w-full" title={pub.source}>
                            <FiBook className="h-3 w-3 flex-shrink-0" />
-                           <span className="truncate">{pub.source}</span>
+                           <span className="truncate max-w-[200px] sm:max-w-[300px]">{pub.source}</span>
                         </div>
                        )}
                        <div className="flex items-center gap-1">

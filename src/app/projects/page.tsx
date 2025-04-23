@@ -214,14 +214,14 @@ export default function ProjectsPage() {
       )}
 
       {isModalOpen && selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 dark:bg-black/60 backdrop-blur-sm" onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
+        <div className="fixed inset-0 z-[100] flex items-start md:items-center justify-center bg-black/30 dark:bg-black/60 backdrop-blur-sm overflow-y-auto pt-20 md:pt-0" onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
           <div
-            className="relative bg-white/90 dark:bg-black/95 text-card-foreground rounded-xl border shadow-xl w-11/12 max-w-2xl max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-in fade-in-0 zoom-in-95"
+            className="relative bg-white/90 dark:bg-black/95 text-card-foreground rounded-xl border shadow-xl w-11/12 max-w-2xl max-h-[80vh] md:max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-in fade-in-0 zoom-in-95 mb-10"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 p-1 rounded-full text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="absolute top-3 right-3 p-2 rounded-full bg-secondary/80 text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
               aria-label={t("common.close")}
             >
               <FiX className="h-5 w-5" />
@@ -299,19 +299,19 @@ export default function ProjectsPage() {
 
       {isFsViewerOpen && selectedProject && currentFsImageIndex !== null && selectedProject.images && (
         <div 
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-md animate-in fade-in-0"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md animate-in fade-in-0"
           onClick={closeFsViewer}
         >
           <button
             onClick={closeFsViewer}
-            className="absolute top-4 right-4 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-colors"
+            className="absolute top-20 md:top-4 right-4 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
             aria-label="Close image viewer"
           >
             <FiX className="h-7 w-7" />
           </button>
 
           <div 
-            className="relative w-[90vw] h-[90vh] flex items-center justify-center"
+            className="relative w-[90vw] h-[70vh] md:h-[90vh] flex items-center justify-center mt-10 md:mt-0"
             onClick={(e) => e.stopPropagation()}
           >
              <Image
@@ -326,7 +326,7 @@ export default function ProjectsPage() {
           {selectedProject.images.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); showPrevFsImage(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
               aria-label="Previous image"
             >
               <FiChevronLeft className="h-8 w-8" />
@@ -336,7 +336,7 @@ export default function ProjectsPage() {
            {selectedProject.images.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); showNextFsImage(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
               aria-label="Next image"
             >
               <FiChevronRight className="h-8 w-8" />
