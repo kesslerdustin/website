@@ -61,7 +61,7 @@ export default function Home() {
             >
               <Image
                 src="/images/avatar.jpeg"
-                alt="Dustin Keßler"
+                alt="Dustin Keßler - Full Stack Developer from Dinslaken, NRW"
                 width={256}
                 height={256}
                 className="object-cover"
@@ -100,6 +100,12 @@ export default function Home() {
                   className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 sm:px-8 text-sm font-medium shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-md hover:border-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   {t("hero.viewResume")}
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 sm:px-8 text-sm font-medium shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-md hover:border-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                >
+                  {language === "de" ? "Über Mich" : "About Me"}
                 </Link>
               </motion.div>
             </div>

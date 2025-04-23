@@ -9,6 +9,7 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://dustinkessler.com/sitemap.xml
+Sitemap: https://dustinkessler.com/image-sitemap.xml
 
 # Specify crawl delay to avoid server overload (optional)
 # Crawl-delay: 10

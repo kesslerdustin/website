@@ -22,8 +22,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Dustin Keßler | Full Stack Developer in NRW, Dinslaken | AI & VR Expert",
-  description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Dinslaken or surrounding areas. View my portfolio, publications, and certifications.",
-  keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen"],
+  description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Duisburg, Essen, Düsseldorf or surrounding areas in NRW. View my portfolio, publications, and certifications.",
+  keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "Entwickler Duisburg", "Software Essen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen", "KI Experte NRW"],
   authors: [{ name: "Dustin Keßler" }],
   creator: "Dustin Keßler",
   openGraph: {
@@ -107,6 +107,8 @@ export default function RootLayout({
         <meta name="geo.placename" content="Dinslaken" />
         <meta name="geo.position" content="51.5667;6.7333" />
         <meta name="ICBM" content="51.5667, 6.7333" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/image-sitemap.xml" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}

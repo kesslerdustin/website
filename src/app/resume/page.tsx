@@ -10,14 +10,36 @@ import {
   education,
   publications,
   certifications,
-  Experience, // Import interfaces if needed for typing
-  Education,
-  Publication,
-  Certification
 } from "../../lib/data";
 
+// Define the correct types locally to match the updated data structure
+interface TranslatedText {
+  en: string;
+  de: string;
+}
+
+interface ExperienceWithTranslation {
+  company: string;
+  logo?: string;
+  title: string;
+  duration: TranslatedText;
+  period: TranslatedText;
+  location: string;
+  details?: string[];
+  skills?: string[];
+}
+
+interface EducationWithTranslation {
+  institution: string;
+  logo?: string;
+  degree: string;
+  field: string;
+  period: TranslatedText;
+}
+
 export default function ResumePage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isGerman = language === "de";
   
   return (
     <div className="container py-12 px-4 md:px-6 md:py-16">
@@ -62,14 +84,14 @@ export default function ResumePage() {
           <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-4 shadow-sm">
             <h2 className="text-xl font-bold mb-3">{t("section.education")}</h2>
             <div className="space-y-5">
-              {education.map((edu, index) => (
+              {(education as EducationWithTranslation[]).map((edu, index) => (
                 <div key={index} className="space-y-1">
                   <h3 className="font-semibold">{edu.degree}</h3>
                   <p className="text-sm font-medium text-primary">{edu.field}</p>
                   <p className="text-sm text-muted-foreground">{edu.institution}</p>
                   <p className="text-xs text-muted-foreground flex items-center gap-1">
                     <FiCalendar className="h-3 w-3" />
-                    {edu.period}
+                    {isGerman ? edu.period.de : edu.period.en}
                   </p>
                 </div>
               ))}
@@ -110,11 +132,13 @@ export default function ResumePage() {
           <section className="bg-card rounded-lg border p-4 sm:p-6 space-y-6 shadow-sm">
             <h2 className="text-xl font-bold mb-4">{t("section.experience")}</h2>
             <div className="space-y-8">
-              {experience.map((job, index) => (
+              {(experience as ExperienceWithTranslation[]).map((job, index) => (
                 <div key={index} className="space-y-2 border-b border-border pb-6 last:border-b-0 last:pb-0">
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                     <h3 className="font-semibold text-lg">{job.title}</h3>
-                    <p className="text-sm text-muted-foreground flex-shrink-0">{job.period} ({job.duration})</p>
+                    <p className="text-sm text-muted-foreground flex-shrink-0">
+                      {isGerman ? job.period.de : job.period.en} ({isGerman ? job.duration.de : job.duration.en})
+                    </p>
                   </div>
                   <p className="text-sm font-medium text-primary">{job.company}</p>
                   <p className="text-sm text-muted-foreground flex items-center gap-1 mb-2">
@@ -166,7 +190,7 @@ export default function ResumePage() {
                        {pub.citations !== undefined && pub.citations !== "n/a" && (
                           <div className="flex items-center gap-1">
                              <FiAward className="h-3 w-3 flex-shrink-0" />
-                             <span>Cited by: {pub.citations}</span>
+                             <span>{isGerman ? t("time.cited.by") : "Cited by:"} {pub.citations}</span>
                           </div>
                        )}
                   </div>

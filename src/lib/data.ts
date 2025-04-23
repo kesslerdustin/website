@@ -39,8 +39,14 @@ export interface Experience {
   company: string;
   logo?: string; // Path to logo image if available
   title: string;
-  duration: string;
-  period: string;
+  duration: {
+    en: string;
+    de: string;
+  };
+  period: {
+    en: string;
+    de: string;
+  };
   location: string;
   details?: string[]; // Bullet points or description
   skills?: string[];
@@ -51,7 +57,10 @@ export interface Education {
   logo?: string; // Path to logo image if available
   degree: string;
   field: string;
-  period: string;
+  period: {
+    en: string;
+    de: string;
+  };
 }
 
 export interface Certification {
@@ -442,29 +451,47 @@ export const experience: Experience[] = [
     company: "Omnystate GmbH",
     // logo: "/logos/omnystate.png", // Example path
     title: "CTO",
-    duration: "4+ Years", // Changed from German to English
-    period: "May 2021 – Present", // Changed from German to English
+    duration: {
+      en: "4+ Years",
+      de: "4+ Jahre"
+    },
+    period: {
+      en: "May 2021 – Present",
+      de: "Mai 2021 – Heute"
+    },
     location: "Dortmund · Hybrid", 
-    skills: ["Full Stack Development", "Python", "Leadership", "Product Management"] // Fixed German term
+    skills: ["Full Stack Development", "Python", "Leadership", "Product Management"]
   },
   // Note: The CV lists CTO twice for Omnystate with overlapping periods. Consolidating into one entry.
   {
     company: "wirfliegendrohne.de GmbH",
     // logo: "/logos/wfd.png", // Example path
-    title: "VR/AR Developer, Photogrammetry", // Changed to English
-    duration: "8 Months", // Changed from German to English
-    period: "Oct 2020 – May 2021", // Changed from German to English
-    location: "Dortmund, North Rhine-Westphalia, Germany", // Changed to English
-    skills: ["Unity", "C#", "AR", "VR", "Photogrammetry", "Full Stack Development"] // Fixed German term
+    title: "VR/AR Developer, Photogrammetry",
+    duration: {
+      en: "8 Months",
+      de: "8 Monate"
+    },
+    period: {
+      en: "Oct 2020 – May 2021",
+      de: "Okt 2020 – Mai 2021"
+    },
+    location: "Dortmund, North Rhine-Westphalia, Germany",
+    skills: ["Unity", "C#", "AR", "VR", "Photogrammetry", "Full Stack Development"]
   },
   {
     company: "Hochschule Ruhr West",
     // logo: "/logos/hrw.png", // Example path
-    title: "Research Assistant", // Changed to English
-    duration: "2 Years 10 Months", // Changed from German to English
-    period: "Jan 2018 – Oct 2020", // Changed from German to English
-    location: "Bottrop, North Rhine-Westphalia, Germany", // Changed to English
-    skills: ["Research", "AR", "VR", "Unity", "Full Stack Development", "Computer Graphics"] // Fixed German term
+    title: "Research Assistant",
+    duration: {
+      en: "2 Years 10 Months",
+      de: "2 Jahre 10 Monate"
+    },
+    period: {
+      en: "Jan 2018 – Oct 2020",
+      de: "Jan 2018 – Okt 2020"
+    },
+    location: "Bottrop, North Rhine-Westphalia, Germany",
+    skills: ["Research", "AR", "VR", "Unity", "Full Stack Development", "Computer Graphics"]
   },
 ];
 
@@ -473,15 +500,21 @@ export const education: Education[] = [
     institution: "Hochschule Ruhr West University of Applied Sciences",
     // logo: "/logos/hrw.png", // Example path
     degree: "Master of Science - MS",
-    field: "Computer Science", // Changed from German to English
-    period: "July 2016 – Jan 2018", // Changed from German to English
+    field: "Computer Science",
+    period: {
+      en: "July 2016 – Jan 2018",
+      de: "Juli 2016 – Jan 2018"
+    }
   },
   {
     institution: "Hochschule Ruhr West University of Applied Sciences",
     // logo: "/logos/hrw.png", // Example path
     degree: "Bachelor of Applied Science - BASc",
-    field: "Human-Computer Interaction", // Changed from German to English
-    period: "Oct 2012 – June 2016", // Changed from German to English
+    field: "Human-Computer Interaction",
+    period: {
+      en: "Oct 2012 – June 2016",
+      de: "Okt 2012 – Juni 2016"
+    }
   },
 ];
 
@@ -493,7 +526,7 @@ export const certifications: Certification[] = [
     description: "Certified ScrumMaster® (CSM) certification",
   },
   {
-    title: "Scholarship", // Changed from German to English
+    title: "Scholarship",
     organization: "Deutschland Stipendium",
     date: "2017-2019",
     description: "Merit-based scholarship awarded to high-achieving students",

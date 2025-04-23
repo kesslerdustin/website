@@ -10,12 +10,14 @@ export function GET(): Response {
   // List of all routes with priorities and update frequencies
   const routes = [
     { path: '', priority: '1.0', changefreq: 'weekly' },
+    { path: '/about', priority: '0.9', changefreq: 'monthly' },
     { path: '/contact', priority: '0.8', changefreq: 'monthly' },
     { path: '/publications', priority: '0.9', changefreq: 'monthly' },
     { path: '/resume', priority: '0.9', changefreq: 'monthly' },
     { path: '/skills', priority: '0.8', changefreq: 'monthly' },
     { path: '/projects', priority: '0.9', changefreq: 'weekly' },
     { path: '/local-services', priority: '0.9', changefreq: 'monthly' },
+    { path: '/image-sitemap.xml', priority: '0.5', changefreq: 'monthly' },
   ];
 
   // Generate the sitemap XML
@@ -27,9 +29,9 @@ export function GET(): Response {
     <lastmod>${date}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route.path}" />
+    ${route.path !== '/image-sitemap.xml' ? `<xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route.path}" />
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de${route.path}" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />` : ''}
   </url>
   `).join('')}
 </urlset>`;

@@ -192,6 +192,16 @@ const translations: Record<Language, Record<string, string>> = {
     "localServices.remoteWork": "I provide remote services for clients worldwide, with the flexibility to work across different time zones and collaborate seamlessly with international teams.",
     "localServices.readyProject": "Ready for Your Next Project?",
     "localServices.contactMe": "Contact Me",
+
+    // Time translations
+    "time.years": "Years",
+    "time.year": "Year",
+    "time.months": "Months",
+    "time.month": "Month",
+    "time.present": "Present",
+    "time.duration.years": "Years",
+    "time.duration.months": "Months",
+    "time.cited.by": "Cited by:",
   },
   de: {
     // Header
@@ -373,6 +383,42 @@ const translations: Record<Language, Record<string, string>> = {
     "localServices.remoteWork": "Ich biete Remote-Dienstleistungen für Kunden weltweit, mit der Flexibilität, in verschiedenen Zeitzonen zu arbeiten und nahtlos mit internationalen Teams zusammenzuarbeiten.",
     "localServices.readyProject": "Bereit für Ihr nächstes Projekt?",
     "localServices.contactMe": "Kontaktieren Sie mich",
+
+    // Time translations
+    "time.years": "Jahre",
+    "time.year": "Jahr",
+    "time.months": "Monate",
+    "time.month": "Monat",
+    "time.present": "Heute",
+    "time.duration.years": "Jahre",
+    "time.duration.months": "Monate",
+    "time.cited.by": "Zitiert von:",
+
+    // Resume date translations
+    "date.jan": "Jan",
+    "date.feb": "Feb", 
+    "date.mar": "Mär",
+    "date.apr": "Apr",
+    "date.may": "Mai",
+    "date.jun": "Jun",
+    "date.jul": "Jul",
+    "date.aug": "Aug", 
+    "date.sep": "Sep",
+    "date.oct": "Okt",
+    "date.nov": "Nov",
+    "date.dec": "Dez",
+    "date.january": "Januar",
+    "date.february": "Februar",
+    "date.march": "März",
+    "date.april": "April",
+    "date.may.full": "Mai",
+    "date.june": "Juni",
+    "date.july": "Juli",
+    "date.august": "August",
+    "date.september": "September", 
+    "date.october": "Oktober",
+    "date.november": "November",
+    "date.december": "Dezember",
   }
 };
 
