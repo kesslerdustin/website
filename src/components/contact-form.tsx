@@ -58,16 +58,33 @@ export function ContactForm() {
     if (!validateForm()) return;
     
     setIsSubmitting(true);
+    setErrors({});
     
-    // Simulate form submission
     try {
-      // Replace with actual form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Call the API to send the email
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+      
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("Form submission error:", error);
-      setErrors({ submit: t("contact.errors.submission") || "Failed to submit form. Please try again." });
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setErrors({ 
+        submit: t("contact.errors.submission") || 
+          `Failed to submit form: ${errorMessage}. Please try again.` 
+      });
     } finally {
       setIsSubmitting(false);
     }
