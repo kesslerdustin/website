@@ -14,9 +14,18 @@ const navItems = [
   { name: "nav.home", href: "/" },
   { name: "nav.projects", href: "/projects" },
   { name: "nav.publications", href: "/publications" },
+  { name: "nav.localServices", href: "/local-services" },
   { name: "nav.skills", href: "/skills" },
   { name: "nav.resume", href: "/resume" },
   { name: "nav.contact", href: "/contact" },
+];
+
+// Keep serviceItems for reference but we won't use it in the dropdown anymore
+const serviceItems = [
+  { name: "localServices.webDev.title", href: "/local-services#web-development" },
+  { name: "localServices.appDev.title", href: "/local-services#app-development" },
+  { name: "localServices.arvrDev.title", href: "/local-services#arvr-development" },
+  { name: "localServices.aiDev.title", href: "/local-services#ai-integration" },
 ];
 
 export function Header() {
@@ -135,7 +144,7 @@ function MobileNav() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block w-full py-4 px-2 text-base font-medium ${
+                  className={`block w-full py-2 px-2 text-base font-medium ${
                     pathname === item.href
                       ? "text-primary"
                       : "text-muted-foreground hover:text-primary"

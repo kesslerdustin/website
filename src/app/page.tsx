@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiMapPin, FiGlobe } from "react-icons/fi";
 import { motion } from "framer-motion";
 import {
   websiteProjects,
@@ -40,7 +40,7 @@ const itemVariant = {
 };
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div>
       {/* Hero Section */}
@@ -105,6 +105,75 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* About Me Section */}
+      <motion.section 
+        className="py-8 md:py-12 bg-muted/30 rounded-lg mb-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-6 max-w-[800px] mx-auto"
+            variants={fadeIn}
+          >
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{t("about.title")}</h2>
+            <p className="text-base md:text-lg leading-relaxed">
+              {t("about.content")}
+            </p>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-sm font-medium"
+            >
+              {t("about.contactCTA") || "Need help with a project? Let's talk!"} <FiExternalLink className="ml-2 h-4 w-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Local Services Section */}
+      <motion.section 
+        className="py-8 md:py-12 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg mb-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-6 max-w-[800px] mx-auto"
+            variants={fadeIn}
+          >
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{language === "de" ? "Meine Services" : "My Services"}</h2>
+            <div className="flex items-center justify-center mb-2">
+              <FiGlobe className="text-primary mr-2" />
+              <span className="font-medium">{language === "de" ? "Remote & weltweit verfügbar" : "Available remotely & worldwide"}</span>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed">
+              {language === "de" 
+                ? "Professionelle Webentwicklung, App-Programmierung und IT-Dienstleistungen für Kunden weltweit. Mit Expertise in modernen Technologien unterstütze ich Projekte jeder Größe."
+                : "Professional web development, app programming, and IT services for clients worldwide. With expertise in modern technologies, I support projects of any size."}
+            </p>
+            <div className="hidden">
+              <span className="invisible">Dinslaken Oberhausen Duisburg Essen NRW Düsseldorf</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
+              <span className="px-3 py-1 bg-card rounded-full border text-sm">Web Development</span>
+              <span className="px-3 py-1 bg-card rounded-full border text-sm">App Development</span>
+              <span className="px-3 py-1 bg-card rounded-full border text-sm">AR/VR</span>
+              <span className="px-3 py-1 bg-card rounded-full border text-sm">AI Integration</span>
+            </div>
+            <Link 
+              href="/local-services" 
+              className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm"
+            >
+              {language === "de" ? "Meine Services" : "My Services"} <FiExternalLink className="ml-2 h-4 w-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* Publications Section */}
       <motion.section 
@@ -290,7 +359,7 @@ export default function Home() {
   );
 }
 
-import type { Publication, Project, ThreeDProject, Certification } from '../lib/data';
+import type { Publication, Project, Certification } from '../lib/data';
 
 function PublicationCard({ publication }: { publication: Publication }) {
   return (
@@ -311,12 +380,13 @@ function PublicationCard({ publication }: { publication: Publication }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage();
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md flex flex-col h-full card-hover-effect">
       <div className="p-4 flex-grow">
         <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-        {project.description && (
-          <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{project.description}</p>
+        {project.shortDescription && (
+          <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{t(project.shortDescription)}</p>
         )}
         {project.tags && (
            <div className="mt-auto pt-2 flex flex-wrap gap-1">
@@ -347,12 +417,13 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-function SimpleProjectCard({ project }: { project: Project | ThreeDProject }) {
+function SimpleProjectCard({ project }: { project: Project }) {
+   const { t } = useLanguage();
    return (
      <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex flex-col h-full card-hover-effect">
         <div className="flex-grow">
           <h4 className="font-semibold text-lg mb-1">{project.title}</h4>
-          {project.description && <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{project.description}</p>}
+          {project.shortDescription && <p className="text-sm text-muted-foreground mt-1 mb-2 line-clamp-2">{t(project.shortDescription)}</p>}
         </div>
         {project.tags && (
             <div className="mt-auto pt-2 flex flex-wrap gap-1">

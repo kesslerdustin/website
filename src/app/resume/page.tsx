@@ -25,7 +25,7 @@ export default function ResumePage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("nav.resume")}</h1>
           <p className="text-muted-foreground md:text-lg">
-            Dustin Keßler - Professional Experience & Qualifications
+            Dustin Keßler - {t("resume.subtitle")}
           </p>
         </div>
         {/* Optional: Add a real link to your resume PDF if available */}
@@ -67,7 +67,7 @@ export default function ResumePage() {
 
           {/* Education */}
           <section className="bg-card rounded-lg border p-6 space-y-4 shadow-sm">
-            <h2 className="text-xl font-bold mb-3">Education</h2>
+            <h2 className="text-xl font-bold mb-3">{t("section.education")}</h2>
             <div className="space-y-5">
               {education.map((edu, index) => (
                 <div key={index} className="space-y-1">
@@ -115,7 +115,7 @@ export default function ResumePage() {
         <div className="md:col-span-2 space-y-8">
           {/* Professional Experience */}
           <section className="bg-card rounded-lg border p-6 space-y-6 shadow-sm">
-            <h2 className="text-xl font-bold mb-4">Professional Experience</h2>
+            <h2 className="text-xl font-bold mb-4">{t("section.experience")}</h2>
             <div className="space-y-8">
               {experience.map((job, index) => (
                 <div key={index} className="space-y-2 border-b border-border pb-6 last:border-b-0 last:pb-0">

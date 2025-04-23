@@ -21,31 +21,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dustin Keßler | AI, VR & Full Stack Developer",
-  description: "Full Stack Developer and Expert in AR/VR, AI, and Computer Science. Hire me for your next project. View my portfolio, publications, and certifications.",
-  keywords: ["Dustin Keßler", "Full Stack Developer", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications"],
+  title: "Dustin Keßler | Full Stack Developer in NRW, Dinslaken | AI & VR Expert",
+  description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Dinslaken or surrounding areas. View my portfolio, publications, and certifications.",
+  keywords: ["Dustin Keßler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen"],
   authors: [{ name: "Dustin Keßler" }],
   creator: "Dustin Keßler",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "de_DE",
     url: "https://dustinkessler.com",
-    title: "Dustin Keßler | AI, VR & Full Stack Developer",
-    description: "Full Stack Developer and Expert in AR/VR, AI, and Computer Science. Hire me for your next project. View my portfolio, publications, and certifications.",
+    title: "Dustin Keßler | Full Stack Developer in NRW | AI & VR Expert",
+    description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Dinslaken or surrounding areas.",
     siteName: "Dustin Keßler Portfolio",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Dustin Keßler - Developer Portfolio"
+        alt: "Dustin Keßler - Full Stack Developer aus Dinslaken, NRW"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dustin Keßler | AI, VR & Full Stack Developer",
-    description: "Full Stack Developer and Expert in AR/VR, AI, and Computer Science. Hire me for your next project.",
+    title: "Dustin Keßler | Full Stack Developer in NRW | AI & VR Expert",
+    description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project.",
     images: ["/images/og-image.jpg"]
   },
   alternates: {
@@ -79,18 +79,33 @@ export default function RootLayout({
               "name": "Dustin Keßler",
               "url": "https://dustinkessler.com",
               "jobTitle": "Full Stack Developer",
-              "knowsAbout": ["AI", "VR", "AR", "Computer Science", "Full Stack Development"],
+              "knowsAbout": ["AI", "VR", "AR", "Computer Science", "Full Stack Development", "Web Development", "Mobile App Development"],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dinslaken",
+                "addressRegion": "NRW",
+                "addressCountry": "DE"
+              },
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Freelance Developer in Dinslaken, NRW"
+              },
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
                 "name": "Hochschule Ruhr West"
               },
               "sameAs": [
                 "https://github.com/kesslerdustin",
+                "https://de.linkedin.com/in/dustin-keßler-462567193",
                 "https://scholar.google.com/citations?user=A0OdhrIAAAAJ&hl=en"
               ]
             })
           }}
         />
+        <meta name="geo.region" content="DE-NW" />
+        <meta name="geo.placename" content="Dinslaken" />
+        <meta name="geo.position" content="51.5667;6.7333" />
+        <meta name="ICBM" content="51.5667, 6.7333" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}

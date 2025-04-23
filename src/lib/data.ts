@@ -70,6 +70,7 @@ export const navLinks: NavLink[] = [
   { href: '/#skills', label: 'Skills', icon: FiCpu },
   { href: '/#publications', label: 'Publications', icon: FiBookOpen },
   { href: '/resume', label: 'Resume', icon: FiAward },
+  { href: '/local-services', label: 'nav.localServices', icon: FiCode },
   // { href: '/contact', label: 'Contact', icon: FiMail }, // Example
 ];
 
@@ -414,7 +415,13 @@ export const skills: string[] = [
   "Java",
   "Python",
   "Blender",
+  "Maya",
   "Photogrammetry",
+  "Agisoft Metashape",
+  "RealityCapture",
+  "Adobe Photoshop",
+  "Adobe After Effects",
+  "Adobe Lightroom",
   "AI",
   "AR",
   "VR",

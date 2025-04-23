@@ -21,6 +21,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.skills": "Skills",
     "nav.resume": "Resume",
     "nav.contact": "Contact",
+    "nav.localServices": "My Services",
     
     // Hero
     "hero.greeting": "Hi, I'm",
@@ -28,16 +29,26 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.viewWork": "View My Work",
     "hero.viewResume": "View Resume",
 
+    // About Me
+    "about.title": "About Me",
+    "about.content": "I'm Dustin Keßler, M.Sc. in Computer Science with a background in Human-Computer Interaction. I began doctoral studies but ultimately chose the path of entrepreneurship, becoming the CTO of Omnystate. I'm always open to exciting projects and new challenges. In my free time, I work with AI, photogrammetry, 3D creation (Blender, etc.), photography, videography, and drone flying. I love diving into new topics and, above all, solving problems.",
+    "about.contactCTA": "Need help with a project? Let's talk!",
+
     // Sections
     "section.publications": "Publications",
     "section.projects": "Featured Projects",
     "section.skills": "Core Skills",
     "section.certifications": "Awards & Certifications",
+    "section.education": "Education",
+    "section.experience": "Professional Experience",
     
     // Publications
     "publications.explore": "Explore my research contributions on Google Scholar or browse the list below.",
     "publications.scholar": "View on Google Scholar",
     "publications.all": "View All Publications",
+    "publications.citedBy": "Cited by:",
+    "publications.none": "No publications listed.",
+    "resume.subtitle": "Professional Experience & Qualifications",
 
     // Projects
     "projects.description": "A selection of my work across different domains.",
@@ -92,6 +103,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Get in Touch",
     "contact.description": "Feel free to reach out for collaborations, questions, or just to say hello! I'll try my best to get back to you soon.",
     "contact.email": "Email",
+    "contact.phone": "Phone",
     "contact.location": "Location",
     "contact.sendMessage": "Send a Message",
     "contact.form.name": "Name",
@@ -149,6 +161,37 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.masterThesisAR.longDesc": "Master's thesis investigating the learning success of PC assembly using AR HoloLens compared to traditional methods. The study analyzes both the assembly process and the learning of individual PC components. The AR solution offers interactive instructions, 3D visualizations of components, and real-time feedback during assembly. The results show significant differences in learning efficiency, error rates, and user satisfaction between the two learning methods.",
     "projects.vrFraese.shortDesc": "Immersive VR simulation of a CNC milling machine with interactive operation and material processing capabilities.",
     "projects.vrFraese.longDesc": "A detailed VR simulation of a CNC milling machine that provides an authentic experience of machine operation and material processing. The application allows users to interact with the machine's controls, set up workpieces, and perform milling operations on various materials. Users can select different tools, adjust cutting parameters, and observe the milling process in real-time. The simulation includes realistic physics for material removal, tool wear visualization, and safety features. This educational tool helps students and professionals understand CNC milling operations, tool selection, and process optimization in a risk-free virtual environment.",
+
+    // Local Services
+    "localServices.title": "Professional IT & Development Services",
+    "localServices.description": "Remote development and IT services available worldwide with expertise in web development, app programming, AR/VR, and AI integration.",
+    "localServices.myServices": "My Services",
+    "localServices.webDev.title": "Web Development",
+    "localServices.webDev.description": "Modern, responsive websites and web applications focused on user-friendliness, performance, and SEO.",
+    "localServices.webDev.feature1": "Responsive Design",
+    "localServices.webDev.feature2": "SEO Optimization",
+    "localServices.webDev.feature3": "Content Management Systems",
+    "localServices.webDev.feature4": "E-Commerce Solutions",
+    "localServices.appDev.title": "App Development",
+    "localServices.appDev.description": "Native and Cross-Platform Mobile Apps for iOS and Android with modern technologies.",
+    "localServices.appDev.feature1": "iOS & Android Apps",
+    "localServices.appDev.feature2": "React Native",
+    "localServices.appDev.feature3": "UI/UX Design",
+    "localServices.appDev.feature4": "App Store Publication",
+    "localServices.arvrDev.title": "AR/VR Development",
+    "localServices.arvrDev.description": "Development of innovative Augmented and Virtual Reality Applications for various platforms.",
+    "localServices.arvrDev.feature3": "360° Visualizations",
+    "localServices.arvrDev.feature4": "Interactive 3D Models",
+    "localServices.aiDev.title": "AI Integration",
+    "localServices.aiDev.description": "Integration of Artificial Intelligence and Machine Learning into existing or new applications.",
+    "localServices.aiDev.feature1": "Chatbots & Assistants",
+    "localServices.aiDev.feature2": "Data Analysis",
+    "localServices.aiDev.feature3": "Automation",
+    "localServices.aiDev.feature4": "AI-powered Functions",
+    "localServices.serviceAreas": "Working Globally",
+    "localServices.remoteWork": "I provide remote services for clients worldwide, with the flexibility to work across different time zones and collaborate seamlessly with international teams.",
+    "localServices.readyProject": "Ready for Your Next Project?",
+    "localServices.contactMe": "Contact Me",
   },
   de: {
     // Header
@@ -159,6 +202,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.skills": "Fähigkeiten",
     "nav.resume": "Lebenslauf",
     "nav.contact": "Kontakt",
+    "nav.localServices": "Meine Services",
     
     // Hero
     "hero.greeting": "Hallo, ich bin",
@@ -166,16 +210,26 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.viewWork": "Meine Arbeit ansehen",
     "hero.viewResume": "Lebenslauf ansehen",
 
+    // About Me
+    "about.title": "Über mich",
+    "about.content": "Ich bin Dustin Keßler, M.Sc. Ich habe Mensch-Technik-Interaktion studiert und anschließend einen Master in Informatik absolviert. Ich begann eine Promotion, entschied mich aber für den Weg in die Startup-Gründung und bin jetzt CTO bei Omnystate. Ich bin immer offen für spannende Projekte. In meiner Freizeit beschäftige ich mich mit KI, Photogrammetrie, 3D-Erstellung (Blender, etc.), Foto- und Videografie und fliege Drohnen. Ich liebe es, mich in neue Themen einzuarbeiten und ganz besonders, Probleme zu lösen.",
+    "about.contactCTA": "Brauchen Sie Hilfe bei einem Projekt? Lassen Sie uns sprechen!",
+
     // Sections
     "section.publications": "Publikationen",
     "section.projects": "Ausgewählte Projekte",
     "section.skills": "Kernkompetenzen",
     "section.certifications": "Auszeichnungen & Zertifizierungen",
+    "section.education": "Bildung",
+    "section.experience": "Berufserfahrung",
     
     // Publications
     "publications.explore": "Entdecken Sie meine Forschungsbeiträge auf Google Scholar oder durchsuchen Sie die Liste unten.",
     "publications.scholar": "Auf Google Scholar ansehen",
     "publications.all": "Alle Publikationen ansehen",
+    "publications.citedBy": "Zitiert von:",
+    "publications.none": "Keine Publikationen aufgelistet.",
+    "resume.subtitle": "Berufserfahrung & Qualifikationen",
 
     // Projects
     "projects.description": "Eine Auswahl meiner Arbeiten in verschiedenen Bereichen.",
@@ -230,6 +284,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Kontakt",
     "contact.description": "Kontaktieren Sie mich für Zusammenarbeit, Fragen oder einfach nur zum Hallo sagen! Ich werde mich schnellstmöglich bei Ihnen melden.",
     "contact.email": "E-Mail",
+    "contact.phone": "Telefon",
     "contact.location": "Standort",
     "contact.sendMessage": "Nachricht senden",
     "contact.form.name": "Name",
@@ -287,6 +342,37 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.masterThesisAR.longDesc": "Masterarbeit, die den Lernerfolg beim Zusammenbau eines PCs mittels AR-HoloLens im Vergleich zu traditionellen Methoden untersucht. Die Studie analysiert sowohl den Prozess des Zusammenbaus als auch das Erlernen der einzelnen PC-Komponenten. Die AR-Lösung bietet interaktive Anleitungen, 3D-Visualisierungen der Komponenten und Echtzeit-Feedback während des Aufbaus. Die Ergebnisse zeigen signifikante Unterschiede in Lerneffizienz, Fehlerquote und Benutzerzufriedenheit zwischen den beiden Lernmethoden.",
     "projects.vrFraese.shortDesc": "Immersive VR-Simulation einer CNC-Fräsmaschine mit interaktiver Bedienung und Materialbearbeitungsmöglichkeiten.",
     "projects.vrFraese.longDesc": "Eine detaillierte VR-Simulation einer CNC-Fräsmaschine, die ein authentisches Erlebnis der Maschinenbedienung und Materialbearbeitung bietet. Die Anwendung ermöglicht es Benutzern, mit den Bedienelementen der Maschine zu interagieren, Werkstücke einzurichten und Fräsvorgänge an verschiedenen Materialien durchzuführen. Benutzer können verschiedene Werkzeuge auswählen, Schnittparameter anpassen und den Fräsprozess in Echtzeit beobachten. Die Simulation umfasst realistische Physik für Materialabtrag, Werkzeugverschleißvisualisierung und Sicherheitsfunktionen. Dieses Bildungswerkzeug hilft Studenten und Fachleuten, CNC-Fräsvorgänge, Werkzeugauswahl und Prozessoptimierung in einer risikofreien virtuellen Umgebung zu verstehen.",
+
+    // Local Services
+    "localServices.title": "Professionelle IT & Entwicklungsdienstleistungen",
+    "localServices.description": "Remote-Entwicklung und IT-Dienstleistungen weltweit verfügbar mit Expertise in Webentwicklung, App-Programmierung, AR/VR und KI-Integration.",
+    "localServices.myServices": "Meine Services",
+    "localServices.webDev.title": "Webentwicklung",
+    "localServices.webDev.description": "Moderne, responsive Websites und Web-Anwendungen mit Fokus auf Benutzerfreundlichkeit, Performance und SEO.",
+    "localServices.webDev.feature1": "Responsive Design",
+    "localServices.webDev.feature2": "SEO-Optimierung",
+    "localServices.webDev.feature3": "Content Management Systeme",
+    "localServices.webDev.feature4": "E-Commerce Lösungen",
+    "localServices.appDev.title": "App-Entwicklung",
+    "localServices.appDev.description": "Native und Cross-Platform Mobile-Apps für iOS und Android mit modernen Technologien.",
+    "localServices.appDev.feature1": "iOS & Android Apps",
+    "localServices.appDev.feature2": "React Native",
+    "localServices.appDev.feature3": "UI/UX Design",
+    "localServices.appDev.feature4": "App Store Veröffentlichung",
+    "localServices.arvrDev.title": "AR/VR Entwicklung",
+    "localServices.arvrDev.description": "Entwicklung innovativer Augmented und Virtual Reality Anwendungen für verschiedene Plattformen.",
+    "localServices.arvrDev.feature3": "360° Visualisierungen",
+    "localServices.arvrDev.feature4": "Interaktive 3D-Modelle",
+    "localServices.aiDev.title": "KI-Integration",
+    "localServices.aiDev.description": "Integration von künstlicher Intelligenz und maschinellem Lernen in bestehende oder neue Anwendungen.",
+    "localServices.aiDev.feature1": "Chatbots & Assistenten",
+    "localServices.aiDev.feature2": "Datenanalyse",
+    "localServices.aiDev.feature3": "Automatisierung",
+    "localServices.aiDev.feature4": "KI-gestützte Funktionen",
+    "localServices.serviceAreas": "Weltweit tätig",
+    "localServices.remoteWork": "Ich biete Remote-Dienstleistungen für Kunden weltweit, mit der Flexibilität, in verschiedenen Zeitzonen zu arbeiten und nahtlos mit internationalen Teams zusammenzuarbeiten.",
+    "localServices.readyProject": "Bereit für Ihr nächstes Projekt?",
+    "localServices.contactMe": "Kontaktieren Sie mich",
   }
 };
 

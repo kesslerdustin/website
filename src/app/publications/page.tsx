@@ -53,7 +53,7 @@ export default function PublicationsPage() {
               {publication.citations !== undefined && publication.citations !== "n/a" && (
                  <div className="flex items-center gap-1.5">
                     <FiAward className="h-4 w-4 flex-shrink-0" />
-                    <span>Cited by: {publication.citations}</span>
+                    <span>{t("publications.citedBy")} {publication.citations}</span>
                  </div>
               )}
             </div>
@@ -63,7 +63,7 @@ export default function PublicationsPage() {
 
       {publications.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-muted-foreground">No publications listed.</p>
+          <p className="text-muted-foreground">{t("publications.none")}</p>
         </div>
       )}
     </div>

@@ -21,8 +21,20 @@ export function StatisticsCard({
   color = "from-primary to-primary/70"
 }: StatisticsCardProps) {
   const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Set a small delay to ensure the component is mounted and in the viewport
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
     const duration = 1500;
     const frameDuration = 1000 / 60;
     const totalFrames = Math.round(duration / frameDuration);
@@ -37,11 +49,12 @@ export function StatisticsCard({
       
       if (frame === totalFrames) {
         clearInterval(counter);
+        setCount(value); // Ensure the final value is set correctly
       }
     }, frameDuration);
     
     return () => clearInterval(counter);
-  }, [value]);
+  }, [value, isVisible]);
 
   return (
     <motion.div

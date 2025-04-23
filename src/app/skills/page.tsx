@@ -43,16 +43,16 @@ export default function SkillsPage() {
   // Sample data for visualizations
   const experienceData = [
     { label: "Full Stack", value: 7 },
-    { label: "VR/AR", value: 5 },
-    { label: "AI Development", value: 3 },
-    { label: "Unity", value: 4 },
+    { label: "VR/AR", value: 10 },
+    { label: "AI Development", value: 4 },
+    { label: "Unity", value: 10 },
   ];
   
   const projectCountData = [
-    { label: "Web Projects", value: 12 },
-    { label: "VR/AR Projects", value: 8 },
+    { label: "Web Projects", value: 3 },
+    { label: "VR/AR Projects", value: 7 },
     { label: "Mobile Apps", value: 6 },
-    { label: "Research", value: 14 },
+    { label: "Research", value: 5 },
   ];
 
   return (
@@ -72,16 +72,17 @@ export default function SkillsPage() {
         </div>
         
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 scroll-animated from-bottom">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <StatisticsCard
             title={t("skills.stats.years") || "Years Experience"}
-            value={7}
+            value={12}
             suffix="+"
             icon={<FiStar />}
+            color="from-blue-500 to-indigo-600" 
           />
           <StatisticsCard
             title={t("skills.stats.projects") || "Projects Completed"}
-            value={30}
+            value={17}
             suffix="+"
             color="from-purple-500 to-indigo-600"
           />
@@ -102,7 +103,7 @@ export default function SkillsPage() {
           <BarChart
             title={t("skills.charts.experience") || "Years of Experience by Domain"}
             data={experienceData}
-            maxValue={10}
+            maxValue={12}
           />
           <BarChart
             title={t("skills.charts.projects") || "Projects by Type"}
