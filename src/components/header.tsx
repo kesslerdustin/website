@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageToggle } from "./language-toggle";
 import { useLanguage } from "../contexts/language-context";
+import { cn } from "../lib/utils";
+import { buttonVariants } from "./ui/button";
 
 const navItems = [
   { name: "nav.home", href: "/" },
@@ -117,33 +119,35 @@ function MobileNav() {
         </svg>
       </button>
       {open && (
-        <motion.div 
-          className="fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto bg-background p-6 md:hidden"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <nav className="flex flex-col gap-6">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 * (index + 1), duration: 0.3 }}
-              >
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          />
+          <motion.div
+            className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white dark:bg-black border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <nav className="flex flex-col gap-4">
+              {navItems.map((item, index) => (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    pathname === item.href ? "text-primary" : "text-muted-foreground"
+                  className={`block w-full py-4 px-2 text-base font-medium ${
+                    pathname === item.href
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                   onClick={() => setOpen(false)}
                 >
                   {t(item.name)}
                 </Link>
-              </motion.div>
-            ))}
-          </nav>
-        </motion.div>
+              ))}
+            </nav>
+          </motion.div>
+        </div>
       )}
     </div>
   );

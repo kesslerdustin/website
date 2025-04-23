@@ -44,17 +44,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="pt-20 pb-6 md:pt-28 md:pb-8 overlay-primary">
+      <section className="pt-16 pb-6 md:pt-28 md:pb-8 overlay-primary">
         <div className="container px-4 md:px-6">
           <motion.div 
-            className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
+            className="flex flex-col md:flex-row items-center gap-6 md:gap-12"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
           >
             {/* Profile Photo */}
             <motion.div 
-              className="relative w-48 h-48 md:w-64 md:h-64 overflow-hidden rounded-full border-4 border-primary/20 shadow-xl"
+              className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 overflow-hidden rounded-full border-4 border-primary/20 shadow-xl"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -75,28 +75,28 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                   {t("hero.greeting")} <span className="text-primary">Dustin Keßler</span>
                 </h1>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                <p className="max-w-[700px] text-muted-foreground text-sm sm:text-base md:text-xl">
                   {t("hero.specialization")}
                 </p>
               </motion.div>
               <motion.div 
-                className="flex flex-col gap-2 min-[400px]:flex-row"
+                className="flex flex-col sm:flex-row gap-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <Link
                   href="#projects"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-200 hover:bg-primary/90 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 sm:px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-200 hover:bg-primary/90 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   {t("hero.viewWork")}
                 </Link>
                 <Link
                   href="/resume"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-md hover:border-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 sm:px-8 text-sm font-medium shadow-sm transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-md hover:border-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   {t("hero.viewResume")}
                 </Link>
@@ -177,7 +177,7 @@ export default function Home() {
             </p>
           </motion.div>
           <motion.div 
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             variants={staggerContainer}
           >
             {certifications.map((cert, index) => (
@@ -223,7 +223,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             variants={staggerContainer}
           >
             {websiteProjects.slice(0, 2).map((project) => (

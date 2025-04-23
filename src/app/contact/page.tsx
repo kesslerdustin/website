@@ -1,6 +1,6 @@
 "use client";
 
-import { FiMail, FiMapPin, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { ContactForm } from "../../components/contact-form";
 import { useLanguage } from "../../contexts/language-context";
@@ -26,22 +26,22 @@ export default function ContactPage() {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 mb-16 scroll-animated from-left">
-          <ContactInfoCard 
+          <ContactInfoCard
             icon={<FiMail className="text-xl" />}
             title={t("contact.email") || "Email"}
-            value="contact@dustinkessler.com"
-            link="mailto:contact@dustinkessler.com"
+            value="duselkay@gmail.com"
+            link="mailto:duselkay@gmail.com"
           />
-          <ContactInfoCard 
+          <ContactInfoCard
+            icon={<FiPhone className="text-xl" />}
+            title={t("contact.phone") || "Phone"}
+            value="+49 15787382634"
+            link="tel:+4915787382634"
+          />
+          <ContactInfoCard
             icon={<FiMapPin className="text-xl" />}
             title={t("contact.location") || "Location"}
-            value="Dortmund, Germany"
-          />
-          <ContactInfoCard 
-            icon={<FiGithub className="text-xl" />}
-            title="GitHub"
-            value="@kesslerdustin"
-            link="https://github.com/kesslerdustin"
+            value="Dinslaken, Germany"
           />
         </div>
         

@@ -84,28 +84,28 @@ export function ContactForm() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center p-8 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800"
+          className="text-center p-6 sm:p-8 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800"
         >
           <div className="flex justify-center mb-4">
             <div className="bg-green-100 dark:bg-green-800/40 p-3 rounded-full">
               <FiCheck className="text-green-600 dark:text-green-400 text-xl" />
             </div>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-green-700 dark:text-green-400">
+          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-green-700 dark:text-green-400">
             {t("contact.success.title") || "Message Sent!"}
           </h3>
-          <p className="text-green-600 dark:text-green-500">
+          <p className="text-sm sm:text-base text-green-600 dark:text-green-500">
             {t("contact.success.message") || "Thanks for contacting me. I'll get back to you soon!"}
           </p>
           <button
-            className="mt-6 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors"
+            className="mt-5 sm:mt-6 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors"
             onClick={() => setIsSubmitted(false)}
           >
             {t("contact.success.newMessage") || "Send Another Message"}
           </button>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">
               {t("contact.form.name") || "Name"} <span className="text-red-500">*</span>
@@ -116,11 +116,11 @@ export function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-2 rounded-md border ${
+              className={`w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md border ${
                 errors.name ? "border-red-500" : "border-input"
               } bg-background`}
             />
-            {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+            {errors.name && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.name}</p>}
           </div>
           
           <div>
@@ -133,11 +133,11 @@ export function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-2 rounded-md border ${
+              className={`w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md border ${
                 errors.email ? "border-red-500" : "border-input"
               } bg-background`}
             />
-            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+            {errors.email && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.email}</p>}
           </div>
           
           <div>
@@ -150,7 +150,7 @@ export function ContactForm() {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-md border border-input bg-background"
+              className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md border border-input bg-background"
             />
           </div>
           
@@ -164,11 +164,11 @@ export function ContactForm() {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              className={`w-full px-4 py-2 rounded-md border ${
+              className={`w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-md border ${
                 errors.message ? "border-red-500" : "border-input"
               } bg-background resize-none`}
             ></textarea>
-            {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+            {errors.message && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.message}</p>}
           </div>
           
           {errors.submit && (
