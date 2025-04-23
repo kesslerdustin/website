@@ -104,6 +104,19 @@ function MobileNav() {
   const pathname = usePathname();
   const { t } = useLanguage();
 
+  useEffect(() => {
+    // Prevent body scroll when menu is open
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
     <div className="md:hidden">
       <button
@@ -127,37 +140,44 @@ function MobileNav() {
           ></path>
         </svg>
       </button>
+      
       {open && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        <>
+          {/* Overlay */}
+          <div 
+            className="fixed inset-0 z-50 bg-black/70"
             onClick={() => setOpen(false)}
           />
-          <motion.div
-            className="absolute top-16 left-1/2 transform -translate-x-1/2 dark:bg-black bg-white border border-border rounded-lg shadow-lg p-6 w-11/12 max-w-xs"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+          
+          {/* Menu */}
+          <div 
+            className="fixed z-50 top-16 left-1/2 -translate-x-1/2 w-11/12 max-w-xs"
           >
-            <nav className="flex flex-col gap-4">
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block w-full py-2 px-2 text-base font-medium transition-colors ${
-                    pathname === item.href
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                  style={{ textShadow: 'none', filter: 'none' }}
-                  onClick={() => setOpen(false)}
-                >
-                  {t(item.name)}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-        </div>
+            <motion.div
+              className="w-full dark:bg-black bg-white border border-border rounded-lg shadow-lg p-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <nav className="flex flex-col gap-4">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`block w-full py-2 px-2 text-base font-medium ${
+                      pathname === item.href
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {t(item.name)}
+                  </Link>
+                ))}
+              </nav>
+            </motion.div>
+          </div>
+        </>
       )}
     </div>
   );
