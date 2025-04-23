@@ -43,11 +43,20 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.description": "A selection of my work across different domains.",
     "projects.all": "View All Projects",
     "projects.category.all": "All",
-    "projects.category.website": "Websites",
-    "projects.category.frontend": "Frontend",
-    "projects.category.app": "App Development",
-    "projects.category.3d": "3D / AR / VR",
+    "projects.category.hobby": "Hobby",
+    "projects.category.professional": "Professional",
+    "projects.category.research": "Research",
     "projects.visitWebsite": "Visit Website",
+    "projects.sort.title": "Sort by Title",
+    "projects.sort.timeline": "Sort by Timeline",
+    "projects.yearLabel": "Year:",
+    "projects.tagsLabel": "Tags:",
+    "projects.categoryLabel": "Category:",
+    "projects.statusLabel": "Status:",
+    "projects.status.completed": "Completed",
+    "projects.status.workInProgress": "Work in Progress",
+    "projects.status.tbd": "TBD",
+    "projects.noProjectsFound": "No projects found for this category.",
 
     // Skills
     "skills.title": "Technical Skills",
@@ -86,6 +95,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.success.title": "Message Sent!",
     "contact.success.message": "Thanks for contacting me. I'll get back to you soon!",
     "contact.success.newMessage": "Send Another Message",
+
+    // Common
+    "common.close": "Close",
   },
   de: {
     // Header
@@ -118,11 +130,20 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.description": "Eine Auswahl meiner Arbeiten in verschiedenen Bereichen.",
     "projects.all": "Alle Projekte ansehen",
     "projects.category.all": "Alle",
-    "projects.category.website": "Webseiten",
-    "projects.category.frontend": "Frontend",
-    "projects.category.app": "App-Entwicklung",
-    "projects.category.3d": "3D / AR / VR",
+    "projects.category.hobby": "Hobby",
+    "projects.category.professional": "Professionell",
+    "projects.category.research": "Forschung",
     "projects.visitWebsite": "Webseite besuchen",
+    "projects.sort.title": "Nach Titel sortieren",
+    "projects.sort.timeline": "Nach Zeitachse sortieren",
+    "projects.yearLabel": "Jahr:",
+    "projects.tagsLabel": "Schlagwörter:",
+    "projects.categoryLabel": "Kategorie:",
+    "projects.statusLabel": "Status:",
+    "projects.status.completed": "Abgeschlossen",
+    "projects.status.workInProgress": "In Bearbeitung",
+    "projects.status.tbd": "TBD",
+    "projects.noProjectsFound": "Keine Projekte für diese Kategorie gefunden.",
 
     // Skills
     "skills.title": "Technische Fähigkeiten",
@@ -161,6 +182,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.success.title": "Nachricht gesendet!",
     "contact.success.message": "Vielen Dank für Ihre Nachricht. Ich werde mich in Kürze bei Ihnen melden!",
     "contact.success.newMessage": "Weitere Nachricht senden",
+
+    // Common
+    "common.close": "Schließen",
   }
 };
 

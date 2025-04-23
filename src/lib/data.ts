@@ -9,10 +9,15 @@ export interface NavLink {
 
 export interface Project {
   title: string;
-  description?: string;
+  shortDescription?: string;
+  longDescription?: string;
   tags?: string[];
   link?: string;
-  image?: string; // Optional image path
+  thumbnailImage?: string;
+  images?: string[];
+  year: number;
+  category: 'hobby' | 'professional' | 'research';
+  status: 'completed' | 'work in progress' | 'TBD';
 }
 
 // Specific project types might extend Project if needed, but a single interface is often sufficient
@@ -67,47 +72,210 @@ export const navLinks: NavLink[] = [
 export const websiteProjects: Project[] = [
   {
     title: "Jinrui No Heart",
-    description: "Website project.",
+    shortDescription: "Website project.",
+    longDescription: "Detailed description for Jinrui No Heart...",
     link: "https://www.jinruinoheart.com",
     tags: ["Web Development"],
+    year: 2025,
+    category: 'hobby',
+    status: 'completed',
+    thumbnailImage: "/images/jinrui.jpg",
+    images: ["/images/jinrui.jpg"],
   },
   {
     title: "Töller & Steprath",
-    description: "Website for an electrical engineering company.",
+    shortDescription: "Website for an electrical engineering company.",
+    longDescription: "Detailed description for Töller & Steprath...",
     link: "https://toeller-steprath.de/",
-    tags: ["Web Development", "WordPress"], // Assuming WP based on structure
+    tags: ["Web Development", "WordPress"],
+    year: 2022,
+    category: 'professional',
+    status: 'completed',
+    thumbnailImage: "/images/toeller.jpg",
+    images: ["/images/toeller.jpg"],
   },
    {
     title: "Steinhauer Engineering",
-    description: "Website for an engineering services company.",
+    shortDescription: "Website for an engineering services company.",
+    longDescription: "Detailed description for Steinhauer Engineering...",
     link: "https://www.steinhauer-engineering.de/",
-    tags: ["Web Development", "WordPress"], // Assuming WP based on structure
+    tags: ["Web Development", "WordPress"],
+    year: 2024,
+    category: 'professional',
+    status: 'completed',
+    thumbnailImage: "/images/steinhauer.jpg",
+    images: ["/images/steinhauer.jpg"],
   },
 ];
 
 export const frontendProjects: Project[] = [
- { title: "Omnystate Platform", description: "Frontend development project." },
+ {
+    title: "Omnystate Platform",
+    shortDescription: "Frontend development project.",
+    longDescription: "Detailed description for Omnystate Platform...",
+    year: 2024,
+    category: 'professional',
+    status: 'work in progress',
+    thumbnailImage: "/images/omnystate.jpg",
+    images: ["/images/omnystate.jpg"],
+  },
 ];
 
 export const appProjects: Project[] = [
-  { title: "Omnystate App", description: "Mobile application development." },
-  { title: "Omnystate Collect", description: "Mobile application development." },
-  { title: "ProtocolIT", description: "Mobile application development." },
-  { title: "The QUIZ", description: "Mobile application development." },
-  { title: "Outdoorbible", description: "Mobile application development." },
-  { title: "Memoria", description: "Mobile application development." },
+  {
+    title: "Omnystate App",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for Omnystate App...",
+    year: 2023,
+    category: 'professional',
+    status: 'work in progress',
+    thumbnailImage: "/images/omnyapp.jpg",
+    images: ["/images/omnyapp.jpg"],
+  },
+  {
+    title: "Omnystate Collect",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for Omnystate Collect...",
+    year: 2025,
+    category: 'professional',
+    status: 'work in progress',
+    thumbnailImage: "/images/omnycollect.jpg",
+    images: ["/images/omnycollect.jpg"],
+  },
+  {
+    title: "ProtocolIT",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for ProtocolIT...",
+    year: 2024,
+    category: 'hobby',
+    status: 'completed',
+    thumbnailImage: "/images/projects/protocolit_thumb.jpg",
+    images: ["/images/projects/protocolit_1.jpg"],
+  },
+  {
+    title: "The QUIZ",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for The QUIZ...",
+    year: 2017,
+    category: 'hobby',
+    status: 'completed',
+    thumbnailImage: "/images/quiz.jpg",
+    images: ["/images/quiz.jpg"],
+  },
+  {
+    title: "Outdoorbible",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for Outdoorbible...",
+    year: 2025,
+    category: 'hobby',
+    status: 'work in progress',
+    thumbnailImage: "/images/projects/outdoorbible_thumb.jpg",
+    images: ["/images/projects/outdoorbible_1.jpg"],
+  },
+  {
+    title: "Memoria",
+    shortDescription: "Mobile application development.",
+    longDescription: "Detailed description for Memoria...",
+    year: 2025,
+    category: 'hobby',
+    status: 'work in progress',
+    thumbnailImage: "/images/projects/memoria_thumb.jpg",
+    images: ["/images/projects/memoria_1.jpg"],
+  },
 ];
 
-export interface ThreeDProject extends Project {} // Alias for clarity if needed
-
-export const threeDProjects: ThreeDProject[] = [
-  { title: "FPVR VR Drone Racing", tags: ["Unity", "VR"] },
-  { title: "Crysis Mod (2007)", tags: ["Modding", "Game Development", "CryEngine"] },
-  { title: "Hololens AR Navigation", tags: ["Hololens", "AR", "Unity"] },
-  { title: "VR School", tags: ["VR", "Unity", "Education"] },
-  { title: "VR Solar", tags: ["VR", "Unity", "Education"] },
-  { title: "AR Machines", tags: ["AR", "Unity"] },
-  { title: "VR Fräse", tags: ["VR", "Unity", "Simulation"] },
+export const threeDProjects: Project[] = [
+  {
+    title: "FPVR VR Drone Racing",
+    shortDescription: "Experimental VR drone racing game.",
+    longDescription: "Detailed description for FPVR VR Drone Racing...",
+    tags: ["Unity", "VR"],
+    year: 2021,
+    category: 'hobby',
+    status: 'completed',
+    link: "https://duselkay.itch.io/fpvr-drone-flying-experimental",
+    thumbnailImage: "/images/fpvr.jpg",
+    images: ["/images/fpvr.jpg"],
+  },
+  {
+    title: "Noname Island 1 - Crysis Mod (2008)",
+    shortDescription: "Singleplayer modification for Crysis.",
+    longDescription: "Detailed description for Noname Island 1...",
+    tags: ["Modding", "Game Development", "CryEngine"],
+    year: 2008,
+    category: 'hobby',
+    status: 'completed',
+    link: "https://www.pcgames.de/Mods-und-Maps-Thema-206108/Downloads/Mod-des-Tages-Crysis-Abenteuer-Noname-Island-in-neuer-Version-647288/",
+    thumbnailImage: "/images/noname.jpg",
+    images: ["/images/noname.jpg"],
+  },
+  {
+    title: "Noname Island 2 - Crysis Mod (2008)",
+    shortDescription: "Sequel singleplayer modification for Crysis.",
+    longDescription: "Detailed description for Noname Island 2...",
+    tags: ["Modding", "Game Development", "CryEngine"],
+    year: 2010,
+    category: 'hobby',
+    status: 'completed',
+    link: "https://www.moddb.com/mods/living-hell-noname-island-21",
+    thumbnailImage: "/images/noname2.jpg",
+    images: ["/images/noname2.jpg"],
+  },
+  {
+    title: "Hololens AR Navigation",
+    shortDescription: "AR navigation research project for Hololens.",
+    longDescription: "Detailed description for Hololens AR Navigation...",
+    tags: ["Hololens", "AR", "Unity"],
+    year: 2020,
+    category: 'research',
+    status: 'completed',
+    thumbnailImage: "/images/hololens.jpg",
+    images: ["/images/hololens.jpg"],
+  },
+  {
+    title: "VR School",
+    shortDescription: "Educational VR application research.",
+    longDescription: "Detailed description for VR School...",
+    tags: ["VR", "Unity", "Education"],
+    year: 2019,
+    category: 'research',
+    status: 'completed',
+    thumbnailImage: "/images/projects/vrschool_thumb.jpg",
+    images: ["/images/projects/vrschool_1.jpg"],
+  },
+  {
+    title: "VR Solar",
+    shortDescription: "VR application for learning about photovoltaics.",
+    longDescription: "Detailed description for VR Solar...",
+    tags: ["VR", "Unity", "Education"],
+    year: 2021,
+    category: 'research',
+    status: 'completed',
+    thumbnailImage: "/images/projects/vrsolar_thumb.jpg",
+    images: ["/images/projects/vrsolar_1.jpg"],
+  },
+  {
+    title: "AR Machines",
+    shortDescription: "AR research project related to machinery.",
+    longDescription: "Detailed description for AR Machines...",
+    tags: ["AR", "Unity"],
+    year: 2020,
+    category: 'research',
+    status: 'completed',
+    thumbnailImage: "/images/projects/armachines_thumb.jpg",
+    images: ["/images/projects/armachines_1.jpg"],
+  },
+  {
+    title: "VR Fräse",
+    shortDescription: "VR simulation for CNC milling.",
+    longDescription: "Detailed description for VR Fräse...",
+    tags: ["VR", "Unity", "Simulation"],
+    year: 2021,
+    category: 'research',
+    status: 'completed',
+    thumbnailImage: "/images/projects/vrfraese_thumb.jpg",
+    images: ["/images/projects/vrfraese_1.jpg"],
+  },
 ];
 
 export const publications: Publication[] = [
@@ -293,15 +461,4 @@ export const certifications: Certification[] = [
     date: "2021",
     description: "Award for innovation in real estate technology solutions",
   },
-];
-
-// Helper function for Project Cards (if needed across pages)
-// Can be moved to components later
-export function getProjectCategory(project: Project): string {
-  // Simple logic based on tags or title, adjust as needed
-  if (websiteProjects.includes(project)) return "Website";
-  if (frontendProjects.includes(project)) return "Frontend";
-  if (appProjects.includes(project)) return "App Development";
-  if (threeDProjects.includes(project)) return "3D / AR / VR";
-  return "Other";
-} 
+]; 
