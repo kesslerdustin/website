@@ -442,29 +442,29 @@ export const experience: Experience[] = [
     company: "Omnystate GmbH",
     // logo: "/logos/omnystate.png", // Example path
     title: "CTO",
-    duration: "4 Jahre+", // Calculated from dates
-    period: "Mai 2021 – Heute",
-    location: "Dortmund · Hybrid",
-    skills: ["Full-Stack-Entwicklung", "Python", "Leadership", "Product Management"] // Expanded based on role
+    duration: "4+ Years", // Changed from German to English
+    period: "May 2021 – Present", // Changed from German to English
+    location: "Dortmund · Hybrid", 
+    skills: ["Full Stack Development", "Python", "Leadership", "Product Management"] // Fixed German term
   },
   // Note: The CV lists CTO twice for Omnystate with overlapping periods. Consolidating into one entry.
   {
     company: "wirfliegendrohne.de GmbH",
     // logo: "/logos/wfd.png", // Example path
-    title: "VR/AR-Entwickler, Photogrammetrie",
-    duration: "8 Monate",
-    period: "Okt. 2020 – Mai 2021",
-    location: "Dortmund, Nordrhein-Westfalen, Deutschland",
-    skills: ["Unity", "C#", "AR", "VR", "Photogrammetry", "Full-Stack-Entwicklung"] // Combined from description
+    title: "VR/AR Developer, Photogrammetry", // Changed to English
+    duration: "8 Months", // Changed from German to English
+    period: "Oct 2020 – May 2021", // Changed from German to English
+    location: "Dortmund, North Rhine-Westphalia, Germany", // Changed to English
+    skills: ["Unity", "C#", "AR", "VR", "Photogrammetry", "Full Stack Development"] // Fixed German term
   },
   {
     company: "Hochschule Ruhr West",
     // logo: "/logos/hrw.png", // Example path
-    title: "Wissenschaftlicher Mitarbeiter mit akademischem Abschluss",
-    duration: "2 Jahre 10 Monate",
-    period: "Jan. 2018 – Okt. 2020",
-    location: "Bottrop, Nordrhein-Westfalen, Deutschland",
-    skills: ["Research", "AR", "VR", "Unity", "Full-Stack-Entwicklung", "Computer Graphics"] // Expanded based on role and publications
+    title: "Research Assistant", // Changed to English
+    duration: "2 Years 10 Months", // Changed from German to English
+    period: "Jan 2018 – Oct 2020", // Changed from German to English
+    location: "Bottrop, North Rhine-Westphalia, Germany", // Changed to English
+    skills: ["Research", "AR", "VR", "Unity", "Full Stack Development", "Computer Graphics"] // Fixed German term
   },
 ];
 
@@ -473,15 +473,15 @@ export const education: Education[] = [
     institution: "Hochschule Ruhr West University of Applied Sciences",
     // logo: "/logos/hrw.png", // Example path
     degree: "Master of Science - MS",
-    field: "Informatik",
-    period: "Juli 2016 – Jan. 2018",
+    field: "Computer Science", // Changed from German to English
+    period: "July 2016 – Jan 2018", // Changed from German to English
   },
   {
     institution: "Hochschule Ruhr West University of Applied Sciences",
     // logo: "/logos/hrw.png", // Example path
     degree: "Bachelor of Applied Science - BASc",
-    field: "Mensch-Computer-Interaktion",
-    period: "Okt. 2012 – Juni 2016",
+    field: "Human-Computer Interaction", // Changed from German to English
+    period: "Oct 2012 – June 2016", // Changed from German to English
   },
 ];
 
@@ -493,7 +493,7 @@ export const certifications: Certification[] = [
     description: "Certified ScrumMaster® (CSM) certification",
   },
   {
-    title: "Stipendium",
+    title: "Scholarship", // Changed from German to English
     organization: "Deutschland Stipendium",
     date: "2017-2019",
     description: "Merit-based scholarship awarded to high-achieving students",
