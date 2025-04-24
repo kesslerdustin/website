@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     "SEO Optimierung NRW"
   ],
   alternates: {
-    canonical: "https://dustinkessler.com/local-services",
+    canonical: "https://www.dustinkessler.com/local-services",
     languages: {
-      'en': 'https://dustinkessler.com/en/local-services',
-      'de': 'https://dustinkessler.com/de/local-services'
+      'en': 'https://www.dustinkessler.com/en/local-services',
+      'de': 'https://www.dustinkessler.com/de/local-services'
     }
   },
 } 
