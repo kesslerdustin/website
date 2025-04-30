@@ -8,8 +8,8 @@ Allow: /
 # Disallow: /internal/
 
 # Sitemaps
-Sitemap: https://dustinkessler.com/sitemap.xml
-Sitemap: https://dustinkessler.com/image-sitemap.xml
+Sitemap: https://www.dustinkessler.de/sitemap.xml
+Sitemap: https://www.dustinkessler.de/image-sitemap.xml
 
 # Specify crawl delay to avoid server overload (optional)
 # Crawl-delay: 10

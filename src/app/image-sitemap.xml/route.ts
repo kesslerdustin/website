@@ -1,6 +1,6 @@
 export function GET(): Response {
   // Base URL of the website
-  const baseUrl = 'https://dustinkessler.com';
+  const baseUrl = 'https://dustinkessler.de';
   
   // Define all images with relevant information
   const images = [

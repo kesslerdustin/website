@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dustinkessler.com/</loc>
+    <loc>https://dustinkessler.de/</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dustinkessler.com/projects</loc>
+    <loc>https://dustinkessler.de/projects</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dustinkessler.com/publications</loc>
+    <loc>https://dustinkessler.de/publications</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dustinkessler.com/skills</loc>
+    <loc>https://dustinkessler.de/skills</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dustinkessler.com/resume</loc>
+    <loc>https://dustinkessler.de/resume</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dustinkessler.com/contact</loc>
+    <loc>https://dustinkessler.de/contact</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export function GET(): Response {
   // Base URL of the website
-  const baseUrl = 'https://dustinkessler.com';
+  const baseUrl = 'https://www.dustinkessler.de';
   
   // Current date for the lastModified field
   const date = new Date().toISOString();

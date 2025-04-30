@@ -21,15 +21,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dustin Keßler | Full Stack Developer in NRW, Dinslaken | AI & VR Expert",
-  description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Duisburg, Essen, Düsseldorf or surrounding areas in NRW. View my portfolio, publications, and certifications.",
+  title: "Dustin Keßler | Full Stack Developer | AI & VR Expert",
+  description: "Full Stack Developer based in Germany. Expert in AR/VR, AI, and Computer Science. Hire me for your next project - anywhere in the world. View my portfolio, publications, and certifications.",
   keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "Entwickler Duisburg", "Software Essen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen", "KI Experte NRW"],
   authors: [{ name: "Dustin Keßler" }],
   creator: "Dustin Keßler",
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://dustinkessler.com",
+    url: "https://dustinkessler.de",
     title: "Dustin Keßler | Full Stack Developer in NRW | AI & VR Expert",
     description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Dinslaken or surrounding areas.",
     siteName: "Dustin Keßler Portfolio",
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"]
   },
   alternates: {
-    canonical: "https://dustinkessler.com",
+    canonical: "https://www.dustinkessler.de",
     languages: {
-      'en': 'https://dustinkessler.com/en',
-      'de': 'https://dustinkessler.com/de'
+      'en': 'https://www.dustinkessler.de/en',
+      'de': 'https://www.dustinkessler.de/de'
     }
   },
   robots: {
@@ -78,7 +78,7 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Dustin Keßler",
               "alternateName": "Dustin Kessler",
-              "url": "https://dustinkessler.com",
+              "url": "https://dustinkessler.de",
               "jobTitle": "Full Stack Developer",
               "knowsAbout": ["AI", "VR", "AR", "Computer Science", "Full Stack Development", "Web Development", "Mobile App Development"],
               "address": {
