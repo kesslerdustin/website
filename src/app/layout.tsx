@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "Entwickler Duisburg", "Software Essen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen", "KI Experte NRW"],
   authors: [{ name: "Dustin Keßler" }],
   creator: "Dustin Keßler",
+  icons: {
+    icon: '/favicon.ico'
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
@@ -69,7 +72,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
