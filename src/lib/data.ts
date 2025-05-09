@@ -193,14 +193,15 @@ export const appProjects: Project[] = [
     domains: ['app'], // Domain added
   },
   {
-    title: "Outdoorbible",
+    title: "Wildscope App",
     shortDescription: "projects.outdoorbible.shortDesc", // Key
     longDescription: "projects.outdoorbible.longDesc", // Key
     year: 2025,
     category: 'hobby',
-    status: 'work in progress',
-    thumbnailImage: "/images/placeholder.jpg", // Placeholder image
-    images: ["/images/placeholder.jpg"], // Placeholder image
+    status: 'completed',
+    thumbnailImage: "/images/wildscope.png", 
+    images: ["/images/wildscope.png"],
+    link: "https://www.wildscope.app",
     tags: ["Mobile Development", "AI Integration", "Species Identification", "Survival Guide", "Community Features", "Interactive Learning", "Environmental Education"],
     domains: ['app', 'backend'], // Domains added (backend requested)
   },

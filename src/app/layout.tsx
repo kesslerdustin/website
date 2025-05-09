@@ -21,9 +21,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dustin Keßler | Full Stack Developer | AI & VR Expert",
-  description: "Full Stack Developer based in Germany. Expert in AR/VR, AI, and Computer Science. Hire me for your next project - anywhere in the world. View my portfolio, publications, and certifications.",
-  keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "Entwickler Duisburg", "Software Essen", "AI Expert", "VR Developer", "AR Developer", "Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Dinslaken", "IT Freelancer NRW", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen", "KI Experte NRW"],
+  title: "Dustin Keßler | Full Stack Developer | Global AI & VR Expert",
+  description: "Full Stack Developer available worldwide. Expert in AR/VR, AI, and Computer Science. Remote services for international clients. Based in Germany with global reach.",
+  keywords: ["Dustin Keßler", "Dustin Kessler", "Full Stack Developer", "Global Developer", "Remote Developer", "International Freelancer", "Webentwickler NRW", "Webentwicklung Dinslaken", "Freelancer Oberhausen", "Entwickler Duisburg", "Software Essen", "AI Expert", "VR Developer", "AR Developer", "Remote Freelancer", "Computer Science", "Hire Developer", "SCRUM Master", "Publications", "Software Developer Germany", "IT Freelancer International", "Programmierung Umgebung Dinslaken", "App Entwicklung Oberhausen", "KI Experte Deutschland", "Remote Services"],
   authors: [{ name: "Dustin Keßler" }],
   creator: "Dustin Keßler",
   icons: {
@@ -33,22 +33,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://dustinkessler.de",
-    title: "Dustin Keßler | Full Stack Developer in NRW | AI & VR Expert",
-    description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project in Oberhausen, Dinslaken or surrounding areas.",
+    title: "Dustin Keßler | Global Full Stack Developer | AI & VR Expert",
+    description: "Full Stack Developer offering remote services worldwide. Based in Germany with global reach. Expert in AR/VR, AI, and Computer Science. Available for international projects.",
     siteName: "Dustin Keßler Portfolio",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Dustin Keßler - Full Stack Developer aus Dinslaken, NRW"
+        alt: "Dustin Keßler - Full Stack Developer with global services"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dustin Keßler | Full Stack Developer in NRW | AI & VR Expert",
-    description: "Full Stack Developer based in Dinslaken, NRW. Expert in AR/VR, AI, and Computer Science. Hire me for your next project.",
+    title: "Dustin Keßler | Global Full Stack Developer | AI & VR Expert",
+    description: "Full Stack Developer offering remote services worldwide. Expert in AR/VR, AI, and Computer Science. Available for international projects.",
     images: ["/images/og-image.jpg"]
   },
   alternates: {
@@ -82,7 +82,8 @@ export default function RootLayout({
               "alternateName": "Dustin Kessler",
               "url": "https://dustinkessler.de",
               "jobTitle": "Full Stack Developer",
-              "knowsAbout": ["AI", "VR", "AR", "Computer Science", "Full Stack Development", "Web Development", "Mobile App Development"],
+              "description": "Global Full Stack Developer specializing in AI, VR/AR, and Computer Science. Available for remote work worldwide.",
+              "knowsAbout": ["AI", "VR", "AR", "Computer Science", "Full Stack Development", "Web Development", "Mobile App Development", "International Remote Work"],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Dinslaken",
@@ -91,11 +92,24 @@ export default function RootLayout({
               },
               "worksFor": {
                 "@type": "Organization",
-                "name": "Freelance Developer in Dinslaken, NRW"
+                "name": "Freelance Developer with Global Services"
               },
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
                 "name": "Hochschule Ruhr West"
+              },
+              "makesOffer": {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Remote Development Services",
+                  "description": "Full stack development, AI integration, VR/AR solutions, and app development available worldwide with remote collaboration."
+                },
+                "areaServed": {
+                  "@type": "GeoShape",
+                  "name": "Worldwide"
+                },
+                "availableLanguage": ["en", "de"]
               },
               "sameAs": [
                 "https://github.com/kesslerdustin",

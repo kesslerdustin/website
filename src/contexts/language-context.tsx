@@ -25,14 +25,16 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     "hero.greeting": "Hi, I'm",
-    "hero.specialization": "Master of Science specializing in Computer Science, AR/VR, AI, and Full Stack Development.",
+    "hero.specialization": "Master of Science specializing in Computer Science, AR/VR, AI, and Full Stack Development. Available for remote work worldwide.",
     "hero.viewWork": "View My Work",
     "hero.viewResume": "View Resume",
+    "hero.globalAvailability": "Available for projects worldwide",
 
     // About Me
     "about.title": "About Me",
-    "about.content": "I'm Dustin Keßler, M.Sc. in Computer Science with a background in Human-Computer Interaction. I began doctoral studies but ultimately chose the path of entrepreneurship, becoming the CTO of Omnystate. I'm always open to exciting projects and new challenges. In my free time, I work with AI, photogrammetry, 3D creation (Blender, etc.), photography, videography, and drone flying. I love diving into new topics and, above all, solving problems.",
-    "about.contactCTA": "Need help with a project? Let's talk!",
+    "about.content": "I'm Dustin Keßler, M.Sc. in Computer Science with a background in Human-Computer Interaction. I began doctoral studies but ultimately chose the path of entrepreneurship, becoming the CTO of Omnystate. I'm always open to exciting projects and new challenges worldwide. In my free time, I work with AI, photogrammetry, 3D creation (Blender, etc.), photography, videography, and drone flying. I love diving into new topics and, above all, solving problems.",
+    "about.contactCTA": "Need help with a project anywhere in the world? Let's talk!",
+    "about.globalServices": "Providing remote services to clients worldwide",
 
     // Sections
     "section.publications": "Publications",
@@ -192,6 +194,12 @@ const translations: Record<Language, Record<string, string>> = {
     "localServices.remoteWork": "I provide remote services for clients worldwide, with the flexibility to work across different time zones and collaborate seamlessly with international teams.",
     "localServices.readyProject": "Ready for Your Next Project?",
     "localServices.contactMe": "Contact Me",
+    "localServices.global.title": "International Services",
+    "localServices.global.description": "Collaborate with clients globally through efficient remote work processes, flexible scheduling, and seamless digital communication.",
+    "localServices.global.feature1": "Time Zone Flexibility",
+    "localServices.global.feature2": "Multilingual Support",
+    "localServices.global.feature3": "International Payment Options",
+    "localServices.global.feature4": "Cross-Cultural Collaboration",
 
     // Time translations
     "time.years": "Years",
@@ -202,6 +210,32 @@ const translations: Record<Language, Record<string, string>> = {
     "time.duration.years": "Years",
     "time.duration.months": "Months",
     "time.cited.by": "Cited by:",
+
+    // Resume date translations
+    "date.jan": "Jan",
+    "date.feb": "Feb", 
+    "date.mar": "Mär",
+    "date.apr": "Apr",
+    "date.may": "Mai",
+    "date.jun": "Jun",
+    "date.jul": "Jul",
+    "date.aug": "Aug", 
+    "date.sep": "Sep",
+    "date.oct": "Okt",
+    "date.nov": "Nov",
+    "date.dec": "Dez",
+    "date.january": "Januar",
+    "date.february": "Februar",
+    "date.march": "März",
+    "date.april": "April",
+    "date.may.full": "Mai",
+    "date.june": "Juni",
+    "date.july": "Juli",
+    "date.august": "August",
+    "date.september": "September", 
+    "date.october": "Oktober",
+    "date.november": "November",
+    "date.december": "Dezember",
   },
   de: {
     // Header
@@ -216,14 +250,16 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     "hero.greeting": "Hallo, ich bin",
-    "hero.specialization": "Master of Science mit Schwerpunkt Informatik, AR/VR, KI und Full-Stack-Entwicklung.",
+    "hero.specialization": "Master of Science mit Schwerpunkt Informatik, AR/VR, KI und Full-Stack-Entwicklung. Verfügbar für Remote-Arbeit weltweit.",
     "hero.viewWork": "Meine Arbeit ansehen",
     "hero.viewResume": "Lebenslauf ansehen",
+    "hero.globalAvailability": "Verfügbar für Projekte weltweit",
 
     // About Me
     "about.title": "Über mich",
-    "about.content": "Ich bin Dustin Keßler, M.Sc. Ich habe Mensch-Technik-Interaktion studiert und anschließend einen Master in Informatik absolviert. Ich begann eine Promotion, entschied mich aber für den Weg in die Startup-Gründung und bin jetzt CTO bei Omnystate. Ich bin immer offen für spannende Projekte. In meiner Freizeit beschäftige ich mich mit KI, Photogrammetrie, 3D-Erstellung (Blender, etc.), Foto- und Videografie und fliege Drohnen. Ich liebe es, mich in neue Themen einzuarbeiten und ganz besonders, Probleme zu lösen.",
-    "about.contactCTA": "Brauchen Sie Hilfe bei einem Projekt? Lassen Sie uns sprechen!",
+    "about.content": "Ich bin Dustin Keßler, M.Sc. Ich habe Mensch-Technik-Interaktion studiert und anschließend einen Master in Informatik absolviert. Ich begann eine Promotion, entschied mich aber für den Weg in die Startup-Gründung und bin jetzt CTO bei Omnystate. Ich bin immer offen für spannende Projekte weltweit. In meiner Freizeit beschäftige ich mich mit KI, Photogrammetrie, 3D-Erstellung (Blender, etc.), Foto- und Videografie und fliege Drohnen. Ich liebe es, mich in neue Themen einzuarbeiten und ganz besonders, Probleme zu lösen.",
+    "about.contactCTA": "Brauchen Sie Hilfe bei einem Projekt? Egal wo auf der Welt - lassen Sie uns sprechen!",
+    "about.globalServices": "Biete Remote-Dienstleistungen für Kunden weltweit an",
 
     // Sections
     "section.publications": "Publikationen",
@@ -354,35 +390,41 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.vrFraese.longDesc": "Eine detaillierte VR-Simulation einer CNC-Fräsmaschine, die ein authentisches Erlebnis der Maschinenbedienung und Materialbearbeitung bietet. Die Anwendung ermöglicht es Benutzern, mit den Bedienelementen der Maschine zu interagieren, Werkstücke einzurichten und Fräsvorgänge an verschiedenen Materialien durchzuführen. Benutzer können verschiedene Werkzeuge auswählen, Schnittparameter anpassen und den Fräsprozess in Echtzeit beobachten. Die Simulation umfasst realistische Physik für Materialabtrag, Werkzeugverschleißvisualisierung und Sicherheitsfunktionen. Dieses Bildungswerkzeug hilft Studenten und Fachleuten, CNC-Fräsvorgänge, Werkzeugauswahl und Prozessoptimierung in einer risikofreien virtuellen Umgebung zu verstehen.",
 
     // Local Services
-    "localServices.title": "Professionelle IT & Entwicklungsdienstleistungen",
+    "localServices.title": "Professionelle IT & Entwicklungs-Services",
     "localServices.description": "Remote-Entwicklung und IT-Dienstleistungen weltweit verfügbar mit Expertise in Webentwicklung, App-Programmierung, AR/VR und KI-Integration.",
-    "localServices.myServices": "Meine Services",
+    "localServices.myServices": "Meine Dienstleistungen",
     "localServices.webDev.title": "Webentwicklung",
-    "localServices.webDev.description": "Moderne, responsive Websites und Web-Anwendungen mit Fokus auf Benutzerfreundlichkeit, Performance und SEO.",
+    "localServices.webDev.description": "Moderne, responsive Websites und Webanwendungen mit Fokus auf Benutzerfreundlichkeit, Performance und SEO.",
     "localServices.webDev.feature1": "Responsive Design",
     "localServices.webDev.feature2": "SEO-Optimierung",
-    "localServices.webDev.feature3": "Content Management Systeme",
-    "localServices.webDev.feature4": "E-Commerce Lösungen",
+    "localServices.webDev.feature3": "Content-Management-Systeme",
+    "localServices.webDev.feature4": "E-Commerce-Lösungen",
     "localServices.appDev.title": "App-Entwicklung",
-    "localServices.appDev.description": "Native und Cross-Platform Mobile-Apps für iOS und Android mit modernen Technologien.",
+    "localServices.appDev.description": "Native und Cross-Platform Mobile Apps für iOS und Android mit modernen Technologien.",
     "localServices.appDev.feature1": "iOS & Android Apps",
     "localServices.appDev.feature2": "React Native",
     "localServices.appDev.feature3": "UI/UX Design",
-    "localServices.appDev.feature4": "App Store Veröffentlichung",
-    "localServices.arvrDev.title": "AR/VR Entwicklung",
+    "localServices.appDev.feature4": "App-Store-Veröffentlichung",
+    "localServices.arvrDev.title": "AR/VR-Entwicklung",
     "localServices.arvrDev.description": "Entwicklung innovativer Augmented und Virtual Reality Anwendungen für verschiedene Plattformen.",
-    "localServices.arvrDev.feature3": "360° Visualisierungen",
+    "localServices.arvrDev.feature3": "360°-Visualisierungen",
     "localServices.arvrDev.feature4": "Interaktive 3D-Modelle",
     "localServices.aiDev.title": "KI-Integration",
-    "localServices.aiDev.description": "Integration von künstlicher Intelligenz und maschinellem Lernen in bestehende oder neue Anwendungen.",
+    "localServices.aiDev.description": "Integration von Künstlicher Intelligenz und Machine Learning in bestehende oder neue Anwendungen.",
     "localServices.aiDev.feature1": "Chatbots & Assistenten",
     "localServices.aiDev.feature2": "Datenanalyse",
     "localServices.aiDev.feature3": "Automatisierung",
     "localServices.aiDev.feature4": "KI-gestützte Funktionen",
     "localServices.serviceAreas": "Weltweit tätig",
-    "localServices.remoteWork": "Ich biete Remote-Dienstleistungen für Kunden weltweit, mit der Flexibilität, in verschiedenen Zeitzonen zu arbeiten und nahtlos mit internationalen Teams zusammenzuarbeiten.",
+    "localServices.remoteWork": "Ich biete Remote-Dienste für Kunden weltweit an, mit der Flexibilität, über verschiedene Zeitzonen hinweg zu arbeiten und nahtlos mit internationalen Teams zusammenzuarbeiten.",
     "localServices.readyProject": "Bereit für Ihr nächstes Projekt?",
     "localServices.contactMe": "Kontaktieren Sie mich",
+    "localServices.global.title": "Internationale Dienstleistungen",
+    "localServices.global.description": "Zusammenarbeit mit Kunden weltweit durch effiziente Remote-Arbeitsprozesse, flexible Terminplanung und nahtlose digitale Kommunikation.",
+    "localServices.global.feature1": "Zeitzonen-Flexibilität",
+    "localServices.global.feature2": "Mehrsprachiger Support",
+    "localServices.global.feature3": "Internationale Zahlungsoptionen",
+    "localServices.global.feature4": "Interkulturelle Zusammenarbeit",
 
     // Time translations
     "time.years": "Jahre",

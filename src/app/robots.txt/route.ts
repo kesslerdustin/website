@@ -7,9 +7,12 @@ Allow: /
 # Disallow: /admin/
 # Disallow: /internal/
 
-# Sitemaps
+# Sitemap files
 Sitemap: https://www.dustinkessler.de/sitemap.xml
 Sitemap: https://www.dustinkessler.de/image-sitemap.xml
+
+# Host directive to specify preferred domain
+Host: www.dustinkessler.de
 
 # Specify crawl delay to avoid server overload (optional)
 # Crawl-delay: 10

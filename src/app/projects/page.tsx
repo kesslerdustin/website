@@ -29,7 +29,7 @@ const allProjects: Project[] = [
 export default function ProjectsPage() {
   const [filterCategory, setFilterCategory] = useState<string>("all");
   const [filterDomain, setFilterDomain] = useState<string>("all");
-  const [sortOrder, setSortOrder] = useState<'timeline' | 'title'>('title');
+  const [sortOrder, setSortOrder] = useState<'timeline' | 'title'>('timeline');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFsViewerOpen, setIsFsViewerOpen] = useState(false);
