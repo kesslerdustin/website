@@ -94,7 +94,7 @@ export function Footer() {
           </div>
           
           {/* Locations */}
-          <div className="md:col-span-1 space-y-3">
+          <div className="md:col-span-1">
             <h3 className="text-lg font-semibold">{isGerman ? "Service-Gebiete" : "Service Areas"}</h3>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">
@@ -114,10 +114,15 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t pt-6 pb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Dustin Keßler. {isGerman ? "Alle Rechte vorbehalten." : "All rights reserved."}
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-center border-t mt-6 pt-6">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              &copy; {currentYear} Dustin Keßler. {isGerman ? "Alle Rechte vorbehalten." : "All rights reserved."}
+            </p>
+            <Link href="/impressum" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Impressum
+            </Link>
+          </div>
           <div className="flex space-x-4">
             <Link href="https://github.com/kesslerdustin" className="text-muted-foreground hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">
               GitHub
